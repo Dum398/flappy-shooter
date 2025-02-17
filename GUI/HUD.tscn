@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://di8ogbrqvfsvi"]
+
+[ext_resource type="Script" path="res://GUI/hud.gd" id="1_s0huf"]
+[ext_resource type="Texture2D" uid="uid://bous55jjeq441" path="res://Sprites/Pickup Icon - Weapons - Zapper.png" id="2_abi55"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_befr6"]
+atlas = ExtResource("2_abi55")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fpj7"]
+font_size = 32
+font_color = Color(1, 0.291158, 0.936746, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s0huf")
+
+[node name="Score" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "000"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_befr6")
+expand_mode = 2
+
+[node name="BombCount" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_2fpj7")
+
+[node name="ResetButton" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -16.0
+offset_right = 27.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESET"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -52.0
+offset_right = 24.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="BombButton" type="Button" parent="MarginContainer2"]
+layout_mode = 2
+text = "BUM!"
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/BombButton" to="." method="_on_bomb_button_pressed"]

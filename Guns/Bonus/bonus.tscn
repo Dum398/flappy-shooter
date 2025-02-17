@@ -1,0 +1,141 @@
+[gd_scene load_steps=20 format=3 uid="uid://dydnnwbcw0r6k"]
+
+[ext_resource type="Script" path="res://Guns/Bonus/bonus.gd" id="1_6vrvi"]
+[ext_resource type="Texture2D" uid="uid://dnjmoqv6vsgso" path="res://Sprites/Pickup Icon - Weapons - Auto Cannons.png" id="1_t3dwv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uylo5"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qegon"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx55p"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uudum"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w05pd"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw5x7"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snd40"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkxa2"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0vmi"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfl6f"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyv58"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hacx"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i2id"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2fep"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2fje"]
+atlas = ExtResource("1_t3dwv")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6lbg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uylo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qegon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx55p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uudum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w05pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vw5x7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snd40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkxa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0vmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfl6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyv58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hacx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i2id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2fep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2fje")
+}],
+"loop": true,
+"name": &"default",
+"speed": 17.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5tb8"]
+radius = 24.0208
+
+[node name="Bonus" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_6vrvi")
+speed = null
+bonus_type = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_v6lbg")
+frame_progress = 0.431221
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u5tb8")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0.500002, 2)
+scale = Vector2(2.65, 2.7)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

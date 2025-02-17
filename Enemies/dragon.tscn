@@ -1,0 +1,126 @@
+[gd_scene load_steps=18 format=3 uid="uid://xu5e4abn5ti0"]
+
+[ext_resource type="Texture2D" uid="uid://2ctnmt74eu8f" path="res://Sprites/Dragon_sprite_sheet_noback.png" id="1_ousu8"]
+[ext_resource type="Script" path="res://Enemies/dragon.gd" id="1_wy7o0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqda1"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(0, 0, 62, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2okhv"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(62, 0, 62, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfh41"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(124, 0, 62, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1opp"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(186, 0, 62, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba2bf"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(248, 0, 62, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcdg5"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(310, 0, 62, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqv4y"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(372, 0, 62, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3rbs"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(434, 0, 62, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyexr"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(496, 0, 62, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wtw32"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_gqda1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_2okhv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qfh41")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_l1opp")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ba2bf")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_dcdg5")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_sqv4y")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_o3rbs")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_kyexr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="Curve" id="Curve_sfr77"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.117385, 0.899124), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ewwos"]
+curve = SubResource("Curve_sfr77")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tat7i"]
+lifetime_randomness = 0.42
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 19.34
+angle_min = -360.0
+angle_max = 360.0
+radial_velocity_min = -277.25
+radial_velocity_max = 232.84
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+alpha_curve = SubResource("CurveTexture_ewwos")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brtrf"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(1176, 0, 64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wfe8"]
+radius = 23.0
+
+[node name="Dragon" type="Area2D" groups=["enemies"]]
+script = ExtResource("1_wy7o0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wtw32")
+frame_progress = 0.234166
+flip_h = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_tat7i")
+texture = SubResource("AtlasTexture_brtrf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7wfe8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(5, -6)
+scale = Vector2(2.9, 3)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
