@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://7jrtkidhxbcr"]
+
+[ext_resource type="Texture2D" uid="uid://b1wkvkibw7d1a" path="res://Enemy 3/fly_0.png" id="1_iq4tk"]
+[ext_resource type="Texture2D" uid="uid://ikiaverbdpfj" path="res://Enemy 3/fly_1.png" id="2_g617o"]
+[ext_resource type="Texture2D" uid="uid://cwe6l6n354112" path="res://Enemy 3/fly_2.png" id="3_jumed"]
+[ext_resource type="Texture2D" uid="uid://lys73qsae4cw" path="res://Enemy 3/fly_3.png" id="4_nnh61"]
+[ext_resource type="Texture2D" uid="uid://crqgkmk8hthhp" path="res://Enemy 3/fly_4.png" id="5_nhnek"]
+[ext_resource type="Texture2D" uid="uid://jihc0xfhkitw" path="res://Enemy 3/fly_5.png" id="6_wohwj"]
+[ext_resource type="Script" path="res://animated_sprite_2d.gd" id="7_36ni2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xn32r"]
+animations = [{
+"frames": [{
+"duration": 13.4,
+"texture": ExtResource("1_iq4tk")
+}, {
+"duration": 13.4,
+"texture": ExtResource("2_g617o")
+}, {
+"duration": 13.4,
+"texture": ExtResource("3_jumed")
+}, {
+"duration": 13.4,
+"texture": ExtResource("4_nnh61")
+}, {
+"duration": 13.4,
+"texture": ExtResource("5_nhnek")
+}, {
+"duration": 13.4,
+"texture": ExtResource("6_wohwj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 77.96
+}]
+
+[node name="kulisak" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(222.75, 236.75)
+scale = Vector2(0.140869, 0.133057)
+sprite_frames = SubResource("SpriteFrames_xn32r")
+frame_progress = 0.267118
+flip_h = true
+script = ExtResource("7_36ni2")
