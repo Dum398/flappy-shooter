@@ -43,6 +43,8 @@ func _bomb_now():
 	
 
 func try_bomb():
+	if self._dead:
+		return
 	if self._bomb_count <= 0:
 		return
 	self._bomb_now()
@@ -91,3 +93,7 @@ func add_bonus(bonus :BonusPickup):
 		self._bomb_count += 1
 
 	bonus.queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	self.add_damage(1000, self)
