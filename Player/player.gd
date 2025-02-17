@@ -43,6 +43,8 @@ func _bomb_now():
 	
 
 func try_bomb():
+	if _bomb_count < 1:
+		return
 	if self._dead:
 		return
 	self._bomb_now()
