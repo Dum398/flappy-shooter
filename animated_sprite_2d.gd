@@ -5,3 +5,5 @@ extends AnimatedSprite2D
 func _ready():
 	$".".play("default")
  
+func _process(delta):
+	$".".rotate(1)
