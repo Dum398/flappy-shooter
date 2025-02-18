@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_kbdgy"]
 [ext_resource type="PackedScene" uid="uid://dhdx51utwhyx6" path="res://Player/Player.tscn" id="1_y36o4"]
 [ext_resource type="PackedScene" uid="uid://di8ogbrqvfsvi" path="res://GUI/HUD.tscn" id="3_4imoe"]
-[ext_resource type="AudioStream" uid="uid://cjtbqeddo2yqs" path="res://Music/Evgeny Bardyuzha - High Octane.mp3" id="4_bbsol"]
 [ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="4_jl1cm"]
+[ext_resource type="AudioStream" uid="uid://c4gq8be8h5m1u" path="res://8bit-video-game-music-289970.mp3" id="5_vyt3g"]
 [ext_resource type="PackedScene" uid="uid://7jrtkidhxbcr" path="res://node_2d.tscn" id="6_kyd11"]
 
 [node name="Level1" type="Node2D"]
@@ -37,7 +37,7 @@ autostart = true
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("3_4imoe")]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_bbsol")
+stream = ExtResource("5_vyt3g")
 volume_db = -10.0
 autoplay = true
 parameters/looping = false
