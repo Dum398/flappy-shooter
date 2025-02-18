@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c26p5n8sido4"]
+[gd_scene load_steps=7 format=3 uid="uid://c26p5n8sido4"]
 
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_kbdgy"]
 [ext_resource type="PackedScene" uid="uid://dhdx51utwhyx6" path="res://Player/Player.tscn" id="1_y36o4"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="4_jl1cm"]
 [ext_resource type="AudioStream" uid="uid://c4gq8be8h5m1u" path="res://8bit-video-game-music-289970.mp3" id="5_vyt3g"]
 [ext_resource type="PackedScene" uid="uid://7jrtkidhxbcr" path="res://node_2d.tscn" id="6_kyd11"]
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_k1ylf"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_kbdgy")
@@ -46,13 +44,6 @@ parameters/looping = false
 
 [node name="kulisak" parent="." instance=ExtResource("6_kyd11")]
 position = Vector2(454, -1)
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-spawn_path = NodePath("..")
-spawn_limit = 2
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_k1ylf")
 
 [connection signal="bomb_count_changed" from="Player" to="." method="_on_player_bomb_count_changed"]
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
