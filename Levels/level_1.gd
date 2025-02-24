@@ -5,7 +5,7 @@ var _bonus_scene = preload("res://Guns/Bonus/bonus.tscn")
 var _bomb_scene = preload("res://Guns/Bonus/bomb_bonus.tscn")
 
 var _dragon_health = 2
-
+@export var enemies :Array[PackedScene]
 
 func _get_spawn_position():
 	var screen_size = get_viewport_rect().size
@@ -13,14 +13,13 @@ func _get_spawn_position():
 
 
 func _on_enemy_spawn_timeout():
-	var dragon = _dragon_scene.instantiate()
-	
-	dragon.position = self._get_spawn_position()
-	dragon.health = self._dragon_health
-	dragon.died.connect(func():
-		$CanvasLayer/HUD.score += 1
-	)
-	self.add_child(dragon)
+	if self.enemies.size() == 0:
+		var dragon = self.enemies.pick_random().instntiate()
+		dragon.position = self._get_spawn_position()
+		dragon.health = self._dragon_health
+		dragon.died.connect(func(
+			
+		
 
 
 func _on_bonus_spawn_timeout():
