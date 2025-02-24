@@ -35,11 +35,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iykr7"]
-radius = 27.4084
+radius = 67.0013
 
 [node name="kulisak" type="Area2D" groups=["enemies"]]
-scale = Vector2(-0.151521, 0.194462)
+scale = Vector2(0.644967, 0.59316)
 script = ExtResource("7_36ni2")
+speed = 206
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.140869, 0.133057)

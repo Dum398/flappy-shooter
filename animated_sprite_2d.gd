@@ -26,6 +26,12 @@ func _on_body_entered(body :Node2D):
 func on_hit(shot :Node2D):
 	if self.health <= 0:
 		return;
+	if shot == null:
+		# Pokud zásah nebyl střelou, umři hned.
+		self.health = 0
+		self.die_now()
+		return
+
 func die_now():
 	self.died.emit()
 	self.queue_free()
