@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7jrtkidhxbcr"]
+[gd_scene load_steps=10 format=3 uid="uid://7jrtkidhxbcr"]
 
 [ext_resource type="Texture2D" uid="uid://b1wkvkibw7d1a" path="res://Enemy 3/fly_0.png" id="1_iq4tk"]
 [ext_resource type="Texture2D" uid="uid://ikiaverbdpfj" path="res://Enemy 3/fly_1.png" id="2_g617o"]
@@ -34,11 +34,13 @@ animations = [{
 "speed": 77.96
 }]
 
-[node name="kulisak" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_iykr7"]
+radius = 35.171
+
+[node name="kulisak" type="Area2D"]
 script = ExtResource("7_36ni2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(222.75, 236.75)
 scale = Vector2(0.140869, 0.133057)
 sprite_frames = SubResource("SpriteFrames_xn32r")
 frame_progress = 0.267118
@@ -46,4 +48,9 @@ flip_h = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 47)
+shape = SubResource("CircleShape2D_iykr7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="AnimatedSprite2D" method="_on_visible_on_screen_notifier_2d_screen_exited"]
