@@ -8,3 +8,4 @@ func _ready():
 func _process(delta):
 	var movement = delta * speed
 	self.position = self.position + (Vector2.LEFT * movement)
+	self.position = self.position + (Vector2.UP * sin(self.position.x) * 100)
