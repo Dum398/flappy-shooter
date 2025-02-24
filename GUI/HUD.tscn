@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://di8ogbrqvfsvi"]
+[gd_scene load_steps=6 format=3 uid="uid://di8ogbrqvfsvi"]
 
 [ext_resource type="Script" path="res://GUI/hud.gd" id="1_s0huf"]
 [ext_resource type="Texture2D" uid="uid://bous55jjeq441" path="res://Sprites/Pickup Icon - Weapons - Zapper.png" id="2_abi55"]
+[ext_resource type="Texture2D" uid="uid://d2da1ynigyhpy" path="res://Enemies/star.png" id="3_7hybd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_befr6"]
 atlas = ExtResource("2_abi55")
@@ -99,6 +100,12 @@ text = "BUM!"
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("3_7hybd")
+expand_mode = 2
 
 [connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/BombButton" to="." method="_on_bomb_button_pressed"]

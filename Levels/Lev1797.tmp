@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c26p5n8sido4"]
+
+[ext_resource type="Script" path="res://Levels/level_1.gd" id="1_kbdgy"]
+[ext_resource type="PackedScene" uid="uid://dhdx51utwhyx6" path="res://Player/Player.tscn" id="1_y36o4"]
+[ext_resource type="PackedScene" uid="uid://xu5e4abn5ti0" path="res://Enemies/dragon.tscn" id="2_v6xuk"]
+[ext_resource type="PackedScene" uid="uid://di8ogbrqvfsvi" path="res://GUI/HUD.tscn" id="3_4imoe"]
+[ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="4_jl1cm"]
+[ext_resource type="AudioStream" uid="uid://c4gq8be8h5m1u" path="res://8bit-video-game-music-289970.mp3" id="5_vyt3g"]
+[ext_resource type="PackedScene" uid="uid://7jrtkidhxbcr" path="res://node_2d.tscn" id="6_kyd11"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_kbdgy")
+enemies = Array[PackedScene]([ExtResource("6_kyd11"), ExtResource("2_v6xuk")])
+
+[node name="Background" parent="." instance=ExtResource("4_jl1cm")]
+position = Vector2(196, -39)
+
+[node name="Player" parent="." instance=ExtResource("1_y36o4")]
+position = Vector2(174, 267)
+
+[node name="EnemySpawn" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="BonusSpawn" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="BombSpawn" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("3_4imoe")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vyt3g")
+volume_db = -10.0
+autoplay = true
+parameters/looping = false
+
+[connection signal="bomb_count_changed" from="Player" to="." method="_on_player_bomb_count_changed"]
+[connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
+[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
+[connection signal="timeout" from="BonusSpawn" to="." method="_on_bonus_spawn_timeout"]
+[connection signal="timeout" from="BombSpawn" to="." method="_on_bomb_spawn_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
+[connection signal="deploy_bomb" from="CanvasLayer/HUD" to="." method="_on_hud_deploy_bomb"]

@@ -14,11 +14,16 @@ func _get_spawn_position():
 
 func _on_enemy_spawn_timeout():
 	if self.enemies.size() == 0:
-		var dragon = self.enemies.pick_random().instntiate()
-		dragon.position = self._get_spawn_position()
-		dragon.health = self._dragon_health
-		dragon.died.connect(func(
-			
+		return
+		
+	var dragon = self.enemies.pick_random().instantiate()
+	dragon.position = self._get_spawn_position()
+		
+	dragon.health = self._dragon_health
+	dragon.died.connect(func():
+		$CanvasLayer/HUD.score += 1
+	)
+	self.add_child(dragon)
 		
 
 
