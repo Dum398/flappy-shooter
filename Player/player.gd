@@ -14,14 +14,16 @@ signal player_death()
 var _dead = false
 
 var _invincible :bool = false:
-	set(new_count):
-		_bomb_count = new_count
-		bomb_count_changed.emit(new_count)
-
-var _bomb_count :int = 0:
 	set(new_val):
 		_invincible = new_val
 		invincibility_changed.emit(new_val)
+		if new_val == true:
+			$InvincibilityTimer.start()
+
+var _bomb_count :int = 0:
+	set(new_count):
+		_bomb_count = new_count
+		bomb_count_changed.emit(new_count)
 
 
 func _ready():
@@ -79,7 +81,8 @@ func _physics_process(delta):
 
 
 func add_damage(amount :int, who :Node2D):
-	if self._invincible:
+	if self._invincible and who.has_method("on_hit"):
+		who.on_hit(null)
 		return
 	if self._dead:
 		return
@@ -105,3 +108,8 @@ func add_bonus(bonus :BonusPickup):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	self.add_damage(1000, self)
+	
+
+
+func _on_invincibility_timer_timeout():
+	self._invincible = false

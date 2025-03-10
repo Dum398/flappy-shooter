@@ -36,3 +36,7 @@ func _on_reset_button_pressed():
 
 func _on_bomb_button_pressed():
 	self.deploy_bomb.emit()
+
+
+func _on_player_invincibility_changed(new_count):
+	%staricon.visible

@@ -98,8 +98,8 @@ text = "BUM!"
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 107.0
+offset_bottom = 99.0
 
 [node name="staricon" type="TextureRect" parent="MarginContainer3"]
 unique_name_in_owner = true

@@ -49,6 +49,7 @@ autoplay = true
 parameters/looping = false
 
 [connection signal="bomb_count_changed" from="Player" to="." method="_on_player_bomb_count_changed"]
+[connection signal="invincibility_changed" from="Player" to="CanvasLayer/HUD" method="_on_player_invincibility_changed"]
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="timeout" from="BonusSpawn" to="." method="_on_bonus_spawn_timeout"]
