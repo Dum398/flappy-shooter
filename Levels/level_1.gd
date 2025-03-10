@@ -1,8 +1,9 @@
 extends Node2D
 
 var _dragon_scene = preload("res://Enemies/dragon.tscn")
-var _bonus_scene = preload("res://Guns/Bonus/bonus.tscn")
-var _bomb_scene = preload("res://Guns/Bonus/bomb_bonus.tscn")
+var _bonus_scene = preload("res://Bonus/bonus.tscn")
+var _bomb_scene = preload("res://Bonus/bomb_bonus.tscn")
+var _star_scene = preload ("res://Bonus/star_bonus.tscn")
 
 var _dragon_health = 2
 @export var enemies :Array[PackedScene]
@@ -42,6 +43,10 @@ func _on_bomb_spawn_timeout():
 	bonus.position = self._get_spawn_position()
 	self.add_child(bonus)
 
+func _on_starspawn_timeout():
+	var bonus = _star_scene.instantiate()
+	bonus.position = self._get_spawn_position()
+	self.add_child(bonus)
 
 func _on_player_bomb_count_changed(new_count :int):
 	$CanvasLayer/HUD.bomb_count = new_count

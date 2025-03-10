@@ -30,6 +30,10 @@ autostart = true
 wait_time = 30.0
 autostart = true
 
+[node name="starspawn" type="Timer" parent="."]
+wait_time = 2.7
+autostart = true
+
 [node name="DifficultyTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
@@ -49,5 +53,6 @@ parameters/looping = false
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="timeout" from="BonusSpawn" to="." method="_on_bonus_spawn_timeout"]
 [connection signal="timeout" from="BombSpawn" to="." method="_on_bomb_spawn_timeout"]
+[connection signal="timeout" from="starspawn" to="." method="_on_starspawn_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="deploy_bomb" from="CanvasLayer/HUD" to="." method="_on_hud_deploy_bomb"]

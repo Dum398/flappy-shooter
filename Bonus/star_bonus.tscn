@@ -9,9 +9,9 @@ radius = 24.0208
 [node name="Bonus" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_q66jm")
-bonus_type = 1
+bonus_type = 2
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+[node name="star" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_q66jm")
 

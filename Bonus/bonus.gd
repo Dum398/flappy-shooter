@@ -3,7 +3,8 @@ class_name BonusPickup
 
 enum EBonusType {
 	Speed,
-	Bomb
+	Bomb,
+	Star
 }
 
 @export var speed :int = 200
@@ -11,8 +12,7 @@ enum EBonusType {
 
 
 func _ready():
-	$AnimatedSprite2D.play()
-
+	if $AnimatedSprite2D: $AnimatedSprite2D.play()
 
 func _process(delta):
 	self.position += Vector2.LEFT * self.speed * delta
