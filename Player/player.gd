@@ -1,5 +1,5 @@
 extends RigidBody2D
-
+signal invincibility_changed(new_count :bool)
 signal bomb_count_changed(new_count :int)
 signal player_death()
 
@@ -13,10 +13,15 @@ signal player_death()
 
 var _dead = false
 
-var _bomb_count :int = 0:
+var _invincible :bool = false:
 	set(new_count):
 		_bomb_count = new_count
 		bomb_count_changed.emit(new_count)
+
+var _bomb_count :int = 0:
+	set(new_val):
+		_invincible = new_val
+		invincibility_changed.emit(new_val)
 
 
 func _ready():
@@ -74,6 +79,8 @@ func _physics_process(delta):
 
 
 func add_damage(amount :int, who :Node2D):
+	if self._invincible:
+		return
 	if self._dead:
 		return
 		
@@ -91,7 +98,8 @@ func add_bonus(bonus :BonusPickup):
 			single_gun.cooldown_time = clampf(single_gun.cooldown_time - 0.05, 0, 2)
 	elif bonus.bonus_type == BonusPickup.EBonusType.Bomb:
 		self._bomb_count += 1
-
+	elif bonus.bonus_type == BonusPickup.EBonusType.Star:
+		self._invincible = true
 	bonus.queue_free()
 
 
