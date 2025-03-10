@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c26p5n8sido4"]
 
-[ext_resource type="Script" path="res://Levels/level_1.gd" id="1_kbdgy"]
+[ext_resource type="Script" uid="uid://dx75i2umd8ckt" path="res://Levels/level_1.gd" id="1_kbdgy"]
 [ext_resource type="PackedScene" uid="uid://dhdx51utwhyx6" path="res://Player/Player.tscn" id="1_y36o4"]
 [ext_resource type="PackedScene" uid="uid://xu5e4abn5ti0" path="res://Enemies/dragon.tscn" id="2_v6xuk"]
 [ext_resource type="PackedScene" uid="uid://di8ogbrqvfsvi" path="res://GUI/HUD.tscn" id="3_4imoe"]

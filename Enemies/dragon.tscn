@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://xu5e4abn5ti0"]
 
 [ext_resource type="Texture2D" uid="uid://2ctnmt74eu8f" path="res://Sprites/Dragon_sprite_sheet_noback.png" id="1_ousu8"]
-[ext_resource type="Script" path="res://Enemies/dragon.gd" id="1_wy7o0"]
+[ext_resource type="Script" uid="uid://c8tq4nwsof2i8" path="res://Enemies/dragon.gd" id="1_wy7o0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqda1"]
 atlas = ExtResource("1_ousu8")
@@ -74,6 +74,10 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_brtrf"]
+atlas = ExtResource("1_ousu8")
+region = Rect2(1176, 0, 64, 64)
+
 [sub_resource type="Curve" id="Curve_sfr77"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.117385, 0.899124), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -94,10 +98,6 @@ gravity = Vector3(0, 0, 0)
 attractor_interaction_enabled = false
 alpha_curve = SubResource("CurveTexture_ewwos")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_brtrf"]
-atlas = ExtResource("1_ousu8")
-region = Rect2(1176, 0, 64, 64)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_7wfe8"]
 radius = 23.0
 
@@ -112,8 +112,8 @@ flip_h = true
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 200
-process_material = SubResource("ParticleProcessMaterial_tat7i")
 texture = SubResource("AtlasTexture_brtrf")
+process_material = SubResource("ParticleProcessMaterial_tat7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7wfe8")

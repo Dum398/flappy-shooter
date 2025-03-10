@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2da1ynigyhpy"
-path="res://.godot/imported/star.png-ec6451125d17c2c1cfc7aefc9e8a3a41.ctex"
+path="res://.godot/imported/star.png-814c380c9d0d0bd395fcc957fe755ee0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/star.png"
-dest_files=["res://.godot/imported/star.png-ec6451125d17c2c1cfc7aefc9e8a3a41.ctex"]
+source_file="res://Bonus/star.png"
+dest_files=["res://.godot/imported/star.png-814c380c9d0d0bd395fcc957fe755ee0.ctex"]
 
 [params]
 

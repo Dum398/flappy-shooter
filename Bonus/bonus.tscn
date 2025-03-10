@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dydnnwbcw0r6k"]
 
-[ext_resource type="Script" path="res://Guns/Bonus/bonus.gd" id="1_6vrvi"]
+[ext_resource type="Script" uid="uid://bbuchqxhew64d" path="res://Bonus/bonus.gd" id="1_6vrvi"]
 [ext_resource type="Texture2D" uid="uid://dnjmoqv6vsgso" path="res://Sprites/Pickup Icon - Weapons - Auto Cannons.png" id="1_t3dwv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uylo5"]

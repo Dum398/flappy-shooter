@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://lys73qsae4cw" path="res://Enemy 3/fly_3.png" id="4_nnh61"]
 [ext_resource type="Texture2D" uid="uid://crqgkmk8hthhp" path="res://Enemy 3/fly_4.png" id="5_nhnek"]
 [ext_resource type="Texture2D" uid="uid://jihc0xfhkitw" path="res://Enemy 3/fly_5.png" id="6_wohwj"]
-[ext_resource type="Script" path="res://animated_sprite_2d.gd" id="7_36ni2"]
+[ext_resource type="Script" uid="uid://clj2l30lvqbvl" path="res://animated_sprite_2d.gd" id="7_36ni2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xn32r"]
 animations = [{

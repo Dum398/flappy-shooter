@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dhdx51utwhyx6"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_pkcwh"]
+[ext_resource type="Script" uid="uid://dvr1gr1ptkpwf" path="res://Player/player.gd" id="1_pkcwh"]
 [ext_resource type="Texture2D" uid="uid://d4b3dpwiyvek6" path="res://Sprites/bluebird-midflap.png" id="2_gbebp"]
 [ext_resource type="Texture2D" uid="uid://ctu1145ju5fqh" path="res://Sprites/bluebird-downflap.png" id="3_7037l"]
 [ext_resource type="PackedScene" uid="uid://bwv2ghvr7t8jx" path="res://Guns/gun.tscn" id="3_y1in8"]

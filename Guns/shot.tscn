@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0gmn0t414txh"]
 
 [ext_resource type="Texture2D" uid="uid://ss58ca8aayik" path="res://Sprites/purple_shot.png" id="1_3uuxl"]
-[ext_resource type="Script" path="res://Guns/shot.gd" id="1_yac6p"]
+[ext_resource type="Script" uid="uid://ddirj2g0nsnc1" path="res://Guns/shot.gd" id="1_yac6p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0dof"]
 radius = 6.0

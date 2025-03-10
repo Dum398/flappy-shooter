@@ -24,7 +24,11 @@ var is_game_over = false:
 		is_game_over = new_value
 		%ResetButton.visible = new_value
 	
-
+var is_invincible = false:
+	set(new_value):
+		is_game_over = new_value
+		%staricon.visible = new_value
+	
 
 func _on_reset_button_pressed():
 	get_tree().reload_current_scene()

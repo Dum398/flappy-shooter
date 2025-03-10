@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvdfwtnly5tyl"]
 
-[ext_resource type="Script" path="res://Levels/background.gd" id="1_3nwtu"]
+[ext_resource type="Script" uid="uid://t1uhe2ds1d0s" path="res://Levels/background.gd" id="1_3nwtu"]
 [ext_resource type="Texture2D" uid="uid://dw7lvu8mcmqr3" path="res://Sprites/background-day.png" id="1_jvcfr"]
 [ext_resource type="Texture2D" uid="uid://b436dinfho0p7" path="res://Sprites/base.png" id="2_8i556"]
 

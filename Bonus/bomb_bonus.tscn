@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://ccl5cwmayl6vj"]
 
-[ext_resource type="Script" path="res://Guns/Bonus/bonus.gd" id="1_e6t26"]
+[ext_resource type="Script" uid="uid://bbuchqxhew64d" path="res://Bonus/bonus.gd" id="1_e6t26"]
 [ext_resource type="Texture2D" uid="uid://bous55jjeq441" path="res://Sprites/Pickup Icon - Weapons - Zapper.png" id="2_t4an0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6fet"]
