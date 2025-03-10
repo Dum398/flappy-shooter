@@ -1,3 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+exporty/zelenejrobot/zelenejrobot.zip
+
+exporty/okno/
+
+exporty/zelenejrobot/
