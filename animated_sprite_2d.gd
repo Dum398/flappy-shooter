@@ -2,7 +2,7 @@ extends Area2D
 @export var speed = 200
 signal died
 var _abs_time = 0
-var _initial_pos = position
+@onready var _initial_pos = position
 var health = 1
 func _ready():
 	$AnimatedSprite2D.play("default")

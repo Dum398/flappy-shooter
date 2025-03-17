@@ -2,14 +2,17 @@ extends RigidBody2D
 signal invincibility_changed(new_count :bool)
 signal bomb_count_changed(new_count :int)
 signal player_death()
-
+signal health_changed
 ## Rychlost pohybu nahoru v px za vteřinu
 @export var flap_strength := 400
 
 @onready var _gun_list = $Guns
 @onready var _anim = $Icon as AnimatedSprite2D
 
-
+@export var health := 3:
+	set(new_health):
+		health = new_health
+		health_changed.emit(new_health)
 
 var _dead = false
 
@@ -86,11 +89,13 @@ func add_damage(amount :int, who :Node2D):
 		return
 	if self._dead:
 		return
-		
-	# self.process_mode = Node.PROCESS_MODE_DISABLED
-	self._dead = true
-	self.linear_velocity = Vector2.UP * 500
-	self.player_death.emit()
+	self.health = health - 1	
+	
+	
+	if self.health == 0:
+		self._dead = true
+		self.linear_velocity = Vector2.UP * 500
+		self.player_death.emit()
 
 
 func add_bonus(bonus :BonusPickup):
