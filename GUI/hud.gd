@@ -40,3 +40,10 @@ func _on_bomb_button_pressed():
 
 func _on_player_invincibility_changed(new_count):
 	%staricon.visible
+var player_health :int = 0:
+	set(new_value):
+		player_health = new_value
+		if not %health:
+			return
+		for point_index in range(%health.get_children().size()):
+			%health.get_child(point_index).visible = point_index < new_value
