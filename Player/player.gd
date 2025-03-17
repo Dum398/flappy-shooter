@@ -2,7 +2,7 @@ extends RigidBody2D
 signal invincibility_changed(new_count :bool)
 signal bomb_count_changed(new_count :int)
 signal player_death()
-signal health_changed
+signal health_changed(new_health :int)
 ## Rychlost pohybu nahoru v px za vteřinu
 @export var flap_strength := 400
 
