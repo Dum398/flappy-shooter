@@ -29,7 +29,7 @@ var bomb_count:int = 0:
 var is_game_over = false:
 	set(new_value):
 		is_game_over = new_value
-		%ResetButton.visible = new_value
+		$gameoverui.visible = new_value
 	
 var is_invincible = false:
 	set(new_value):
@@ -47,3 +47,7 @@ func _on_bomb_button_pressed():
 
 func _on_player_invincibility_changed(new_count):
 	%staricon.visible
+
+
+func _on_mmenubutton_pressed():
+	get_tree().change_scene_to_file("res://GUI/mmenu.tscn")

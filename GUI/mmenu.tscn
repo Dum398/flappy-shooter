@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5m180p1evb80"]
+[gd_scene load_steps=4 format=3 uid="uid://c5m180p1evb80"]
 
 [ext_resource type="FontFile" uid="uid://f08ay0uwimd6" path="res://GUI/Bytesized-Regular.ttf" id="1_4ylv5"]
 [ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="1_fys01"]
+[ext_resource type="Script" uid="uid://bxpnmva2nt4v5" path="res://GUI/mmenu.gd" id="1_i81kk"]
 
 [node name="Mmenu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i81kk")
 
 [node name="Background" parent="." instance=ExtResource("1_fys01")]
 position = Vector2(441, -64)
@@ -55,3 +57,6 @@ text = "EXIT"
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[connection signal="pressed" from="VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
