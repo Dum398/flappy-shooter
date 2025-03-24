@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://di8ogbrqvfsvi"]
+[gd_scene load_steps=8 format=3 uid="uid://di8ogbrqvfsvi"]
 
 [ext_resource type="Script" uid="uid://b7gu56d2mghqt" path="res://GUI/hud.gd" id="1_s0huf"]
 [ext_resource type="Texture2D" uid="uid://brgun5wxkshsj" path="res://Sprites/bluebird-upflap.png" id="2_88ec2"]
 [ext_resource type="Texture2D" uid="uid://bous55jjeq441" path="res://Sprites/Pickup Icon - Weapons - Zapper.png" id="2_abi55"]
 [ext_resource type="Texture2D" uid="uid://d2da1ynigyhpy" path="res://Bonus/star.png" id="3_7hybd"]
+[ext_resource type="Script" uid="uid://d0n8pjs520b6x" path="res://GUI/score_store.gd" id="3_vwkww"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_befr6"]
 atlas = ExtResource("2_abi55")
@@ -60,6 +61,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
 text = "000"
 horizontal_alignment = 1
+script = ExtResource("3_vwkww")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

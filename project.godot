@@ -16,6 +16,10 @@ run/main_scene="uid://c5m180p1evb80"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ScoreStore="*res://GUI/score_store.gd"
+
 [display]
 
 window/stretch/mode="viewport"
