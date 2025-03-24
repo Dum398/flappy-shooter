@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5m180p1evb80"]
+
+[ext_resource type="FontFile" uid="uid://f08ay0uwimd6" path="res://GUI/Bytesized-Regular.ttf" id="1_4ylv5"]
+[ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="1_fys01"]
+
+[node name="Mmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" parent="." instance=ExtResource("1_fys01")]
+position = Vector2(441, -64)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 429.0
+offset_top = 203.0
+offset_right = 724.0
+offset_bottom = 266.0
+theme_override_fonts/font = ExtResource("1_4ylv5")
+theme_override_font_sizes/font_size = 45
+text = "Flappy Bird"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.5
+offset_top = -94.5
+offset_right = 147.5
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="new_game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "new game"
+
+[node name="leaderboards" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "leaderboards"
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "EXIT"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
