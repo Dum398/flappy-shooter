@@ -1,13 +1,39 @@
 extends Label
 const G_CURRENT_VERSION = 1
-var _leaderboard :Dictionary[String, int] = {}
+const G_file_path = "user://score.json"
+var _leaderboard :Array  = []
 
 func _init():
 	self.load()
-	
+
 
 func load():
-	pass
+	if not FileAccess.file_exists(G_file_path):
+		return
+	
+	var file = FileAccess.open(G_file_path , FileAccess.READ)
+	var filecontent = file.get_as_text()
+	var jsonreader := JSON.new()
+	if jsonreader.parse(filecontent) != OK:
+		print("rip chyba:",jsonreader.get_error_message(), "skore na radku: ", jsonreader.get_error_line())
+		
+	if not "version" in jsonreader.data:
+			return
+	var current_data = self._update_version(jsonreader.data) 
+	if current_data == null:
+		return
+func _update_version(raw_data):
+	if raw_data.version != G_CURRENT_VERSION:
+		print("neplatna verze souboru")
+		return null
+		
+	return raw_data
+
 
 func Save():
-	pass
+	var file := FileAccess.open(G_file_path , FileAccess.WRITE)
+	var json_string = JSON.stringify({
+		"version": G_CURRENT_VERSION,
+		"score_list": self._leaderboard
+	})
+	file.store_string(json_string)

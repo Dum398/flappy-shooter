@@ -23,6 +23,7 @@ ScoreStore="*res://GUI/score_store.gd"
 [display]
 
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://bc2yu2v2750x6"
 
 [global_group]
 
