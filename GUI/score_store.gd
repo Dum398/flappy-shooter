@@ -1,12 +1,23 @@
 extends Label
 const G_CURRENT_VERSION = 1
 const G_file_path = "user://score.json"
-var _leaderboard :Array  = []
 
 func _init():
-	self.load()
-
-
+	print("Skóre soubor je zde: " + ProjectSettings.globalize_path(G_file_path))
+	self.Save()
+var _leaderboard :Array = [
+	{
+		"name": "Franta omacka",
+		"score": "11"
+	}
+]
+func add_score(name :String, score :int):
+	self._leaderboard.push_back({
+		"name": name,
+		"score": score
+	}
+	)
+	self.Save()
 func load():
 	if not FileAccess.file_exists(G_file_path):
 		return
@@ -22,10 +33,15 @@ func load():
 	var current_data = self._update_version(jsonreader.data) 
 	if current_data == null:
 		return
+	
+	for element in jsonreader.data.score_list:
+		self._leaderboard.push_back(element)
 func _update_version(raw_data):
 	if raw_data.version != G_CURRENT_VERSION:
 		print("neplatna verze souboru")
 		return null
+		
+	
 		
 	return raw_data
 

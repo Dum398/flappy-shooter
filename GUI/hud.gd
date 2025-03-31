@@ -15,7 +15,7 @@ var score :int = 0:
 		score = new_value
 		if %Score:
 			%Score.text = str(new_value)
-
+			
 
 
 var bomb_count:int = 0:
@@ -30,7 +30,7 @@ var is_game_over = false:
 	set(new_value):
 		is_game_over = new_value
 		$gameoverui.visible = new_value
-	
+		ScoreStore.add_score("jirka" , score)
 var is_invincible = false:
 	set(new_value):
 		is_game_over = new_value
