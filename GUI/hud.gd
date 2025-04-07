@@ -30,7 +30,8 @@ var is_game_over = false:
 	set(new_value):
 		is_game_over = new_value
 		$gameoverui.visible = new_value
-		ScoreStore.add_score("jirka" , score)
+		%Potvrzeni.disabled = not new_value
+
 var is_invincible = false:
 	set(new_value):
 		is_game_over = new_value
@@ -51,3 +52,12 @@ func _on_player_invincibility_changed(new_count):
 
 func _on_mmenubutton_pressed():
 	get_tree().change_scene_to_file("res://GUI/mmenu.tscn")
+
+
+func _on_potvrzeni_pressed():
+	var final_name = %usernamneedit.text.strip_edges()
+	if final_name.length() == 0:
+		return
+	print(final_name)
+	ScoreStore.add_score(final_name, self.score)
+	%Potvrzeni.disabled = true
