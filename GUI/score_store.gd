@@ -7,7 +7,7 @@ func _init():
 	self.Save()
 
 func gettopn(count :int):
-	self._leaderboard.sort_custom(func(a, b): a.score - b.score)
+	self._leaderboard.sort_custom(func(a, b): return a.score > b.score)
 	return self._leaderboard.slice(0, count)
 
 var _leaderboard :Array = [
