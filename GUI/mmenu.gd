@@ -10,4 +10,10 @@ func _on_exit_pressed():
 
 
 
+
+
 		
+
+
+func _on_leaderboards_pressed():
+	get_tree().change_scene_to_file("res://leaderboards.tscn")

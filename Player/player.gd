@@ -112,7 +112,8 @@ func add_bonus(bonus :BonusPickup):
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	self.add_damage(1000, self)
+	self._dead = true
+	self.player_death.emit()
 	
 
 

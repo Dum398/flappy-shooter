@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwg3w62dx1kvo"]
+
+[ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="1_f2lca"]
+[ext_resource type="Script" uid="uid://kmve6gfevie0" path="res://leaderboards.gd" id="1_pf0yp"]
+[ext_resource type="FontFile" uid="uid://f08ay0uwimd6" path="res://GUI/Bytesized-Regular.ttf" id="3_qhm5l"]
+
+[node name="leaderboards" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1157.0
+offset_bottom = 649.0
+script = ExtResource("1_pf0yp")
+
+[node name="Background" parent="." instance=ExtResource("1_f2lca")]
+position = Vector2(441, -64)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_qhm5l")
+text = "EXIT"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -143.5
+offset_right = 118.5
+offset_bottom = 143.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_right = 42.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qhm5l")
+theme_override_font_sizes/font_size = 20
+text = "Top Scores"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="scorelist" type="VBoxContainer" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

@@ -5,10 +5,15 @@ const G_file_path = "user://score.json"
 func _init():
 	print("Skóre soubor je zde: " + ProjectSettings.globalize_path(G_file_path))
 	self.Save()
+
+func gettopn(count :int):
+	self._leaderboard.sort_custom(func(a, b): a.score - b.score)
+	return self._leaderboard.slice(0, count)
+
 var _leaderboard :Array = [
 	{
 		"name": "Franta omacka",
-		"score": "11"
+		"score": 11
 	}
 ]
 func add_score(name :String, score :int):
