@@ -102,6 +102,8 @@ alpha_curve = SubResource("CurveTexture_ewwos")
 radius = 23.0
 
 [node name="Dragon" type="Area2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_wy7o0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

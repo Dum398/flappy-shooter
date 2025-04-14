@@ -53,6 +53,10 @@ text = "leaderboards"
 layout_mode = 2
 text = "EXIT"
 
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ruin my PC"
+
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -61,3 +65,4 @@ offset_bottom = 40.0
 [connection signal="pressed" from="VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/leaderboards" to="." method="_on_leaderboards_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

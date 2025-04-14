@@ -6,7 +6,8 @@ extends Node2D
 
 func _process(delta):
 	var movement = delta * speed
-	self.position = self.position + (Vector2.RIGHT * movement)
+	var forward = Vector2.RIGHT.rotated(self.rotation)
+	self.position = self.position + (forward * movement)
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

@@ -18,6 +18,8 @@ position = Vector2(-1.5, 0.499999)
 scale = Vector2(1.95, 1.35)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.5708

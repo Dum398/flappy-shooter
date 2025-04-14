@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cggjr174cxtkl"]
+
+[ext_resource type="Script" uid="uid://270c83qy4cgy" path="res://Guns/shotgun.gd" id="1_516d1"]
+
+[node name="shotgun" type="Node2D"]
+script = ExtResource("1_516d1")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="shotorigins" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="shotorigins"]
+position = Vector2(0, -1.19209e-07)
+rotation = 0.261799
+
+[node name="Node2D2" type="Node2D" parent="shotorigins"]
+rotation = 0.523599
+
+[node name="Node2D3" type="Node2D" parent="shotorigins"]
+rotation = 0.785398
+
+[node name="Node2D4" type="Node2D" parent="shotorigins"]
+rotation = -0.261799
+
+[node name="Node2D5" type="Node2D" parent="shotorigins"]
+rotation = -0.523599
+
+[node name="Node2D6" type="Node2D" parent="shotorigins"]
+rotation = -0.785398

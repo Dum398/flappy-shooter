@@ -58,7 +58,7 @@ func _on_player_player_death():
 
 func _on_hud_deploy_bomb():
 	$Player.try_bomb()
-
+	
 
 func _on_player_health_changed(new_health :int):
 	$CanvasLayer/HUD.player_health = new_health
