@@ -55,7 +55,7 @@ text = "EXIT"
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Ruin my PC"
+text = "Firefox"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
