@@ -108,14 +108,17 @@ func add_bonus(bonus :BonusPickup):
 		self._bomb_count += 1
 	elif bonus.bonus_type == BonusPickup.EBonusType.Star:
 		self._invincible = true
+	elif bonus.bonus_type == BonusPickup.EBonusType.Weapon:
+		self.Switch_weapons(bonus.weapon_scene)
 	bonus.queue_free()
-
-
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	self._dead = true
 	self.player_death.emit()
 	
-
-
+func Switch_weapons(weapon_scene :PackedScene):
+	for child in $Guns.get_children():
+		child.queue_free()
+	var new_weapon = weapon_scene.instantiate()
+	$Guns.add_child(new_weapon)
 func _on_invincibility_timer_timeout():
 	self._invincible = false

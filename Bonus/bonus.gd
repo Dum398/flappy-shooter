@@ -4,12 +4,13 @@ class_name BonusPickup
 enum EBonusType {
 	Speed,
 	Bomb,
-	Star
+	Star,
+	Weapon
 }
 
 @export var speed :int = 200
 @export var bonus_type :EBonusType = EBonusType.Speed
-
+@export var weapon_scene :PackedScene 
 
 func _ready():
 	if $AnimatedSprite2D: $AnimatedSprite2D.play()

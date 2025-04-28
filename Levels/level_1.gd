@@ -7,7 +7,7 @@ var _star_scene = preload ("res://Bonus/star_bonus.tscn")
 
 var _dragon_health = 2
 @export var enemies :Array[PackedScene]
-
+@export var weapons :Array[PackedScene]
 func _get_spawn_position():
 	var screen_size = get_viewport_rect().size
 	return Vector2(screen_size.x, (screen_size.y - 120) * randf())
@@ -62,3 +62,16 @@ func _on_hud_deploy_bomb():
 
 func _on_player_health_changed(new_health :int):
 	$CanvasLayer/HUD.player_health = new_health
+
+
+func _on_weapon_spawn_timeout():
+	
+	if self.weapons.size() == 0:
+		return
+		
+	var weapon = self.weapons.pick_random().instantiate()
+	weapon.position = self._get_spawn_position()
+		 
+
+	
+	self.add_child(weapon)
