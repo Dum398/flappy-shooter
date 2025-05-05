@@ -29,7 +29,7 @@ wait_time = 0.2
 autostart = true
 
 [node name="BonusSpawn" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 45.0
 autostart = true
 
 [node name="BombSpawn" type="Timer" parent="."]
@@ -54,6 +54,9 @@ volume_db = -10.0
 autoplay = true
 parameters/looping = false
 
+[node name="Medkit_spawn" type="Timer" parent="."]
+autostart = true
+
 [connection signal="bomb_count_changed" from="Player" to="." method="_on_player_bomb_count_changed"]
 [connection signal="health_changed" from="Player" to="." method="_on_player_health_changed"]
 [connection signal="invincibility_changed" from="Player" to="CanvasLayer/HUD" method="_on_player_invincibility_changed"]
@@ -65,3 +68,4 @@ parameters/looping = false
 [connection signal="timeout" from="starspawn" to="." method="_on_starspawn_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="deploy_bomb" from="CanvasLayer/HUD" to="." method="_on_hud_deploy_bomb"]
+[connection signal="timeout" from="Medkit_spawn" to="." method="_on_medkit_spawn_timeout"]

@@ -4,7 +4,7 @@ var _dragon_scene = preload("res://Enemies/dragon.tscn")
 var _bonus_scene = preload("res://Bonus/bonus.tscn")
 var _bomb_scene = preload("res://Bonus/bomb_bonus.tscn")
 var _star_scene = preload ("res://Bonus/star_bonus.tscn")
-
+var _medkit_scene= preload ("res://Bonus/medkit_bonus.tscn")
 var _dragon_health = 2
 @export var enemies :Array[PackedScene]
 @export var weapons :Array[PackedScene]
@@ -75,3 +75,9 @@ func _on_weapon_spawn_timeout():
 
 	
 	self.add_child(weapon)
+
+
+func _on_medkit_spawn_timeout():
+	var bonus = _medkit_scene.instantiate()
+	bonus.position = self._get_spawn_position()
+	self.add_child(bonus)

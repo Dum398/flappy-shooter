@@ -29,6 +29,8 @@ radius = 12.0
 [node name="Player" type="RigidBody2D"]
 collision_mask = 3
 script = ExtResource("1_pkcwh")
+flap_strength = null
+health = null
 
 [node name="Icon" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ad8bx")

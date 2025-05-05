@@ -5,7 +5,8 @@ enum EBonusType {
 	Speed,
 	Bomb,
 	Star,
-	Weapon
+	Weapon,
+	Medkit
 }
 
 @export var speed :int = 200

@@ -110,6 +110,10 @@ func add_bonus(bonus :BonusPickup):
 		self._invincible = true
 	elif bonus.bonus_type == BonusPickup.EBonusType.Weapon:
 		self.Switch_weapons(bonus.weapon_scene)
+	elif bonus.bonus_type == BonusPickup.EBonusType.Medkit:
+		if self.health>=3:
+			return
+		self.health=self.health+1
 	bonus.queue_free()
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	self._dead = true

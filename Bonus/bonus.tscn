@@ -123,6 +123,7 @@ radius = 24.0208
 [node name="Bonus" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_6vrvi")
+bonus_type = 3
 weapon_scene = ExtResource("2_pxp5e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
