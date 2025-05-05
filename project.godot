@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ScoreStore="*res://GUI/score_store.gd"
+Player="*res://Player/Player.tscn"
 
 [display]
 

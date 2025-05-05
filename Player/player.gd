@@ -126,3 +126,10 @@ func Switch_weapons(weapon_scene :PackedScene):
 	$Guns.add_child(new_weapon)
 func _on_invincibility_timer_timeout():
 	self._invincible = false
+
+
+
+
+	
+	
+	
