@@ -4,29 +4,30 @@
 [ext_resource type="Texture2D" uid="uid://b6d5gu7lb80d0" path="res://Levels/pipe.png" id="2_arayy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1uqvy"]
-size = Vector2(144, 166.75)
+size = Vector2(144, 569.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3wvs"]
-size = Vector2(202, 66)
+size = Vector2(202, 192)
 
 [node name="Node2D" type="Area2D"]
 script = ExtResource("1_78010")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 119.5)
+position = Vector2(-27.5, 294.5)
+scale = Vector2(0.793269, 2.48971)
 texture = ExtResource("2_arayy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 152)
+position = Vector2(-27, 339.313)
 shape = SubResource("RectangleShape2D_1uqvy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 33)
+position = Vector2(-29, 82)
 shape = SubResource("RectangleShape2D_i3wvs")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-1, 120.5)
-scale = Vector2(10.2, 12.35)
+position = Vector2(-30, 319.25)
+scale = Vector2(10.2, 30.675)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

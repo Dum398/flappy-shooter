@@ -16,7 +16,6 @@ enemies = Array[PackedScene]([ExtResource("6_kyd11"), ExtResource("2_v6xuk")])
 weapons = Array[PackedScene]([ExtResource("4_xcayt"), ExtResource("5_5g41i")])
 
 [node name="Background" parent="." instance=ExtResource("4_jl1cm")]
-position = Vector2(196, -39)
 
 [node name="Player" parent="." instance=ExtResource("1_y36o4")]
 position = Vector2(174, 267)

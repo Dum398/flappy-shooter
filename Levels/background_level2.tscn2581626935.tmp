@@ -8,6 +8,7 @@ size = Vector2(1334, 20)
 
 [node name="Background" type="Node2D"]
 script = ExtResource("1_w4gtr")
+speed = null
 
 [node name="Sky" type="Parallax2D" parent="."]
 scale = Vector2(0.411853, 0.588498)
