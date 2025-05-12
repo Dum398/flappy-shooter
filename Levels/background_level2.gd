@@ -15,7 +15,8 @@ func _ready():
 func apply_speed():
 	if find_child("Sky"): $Sky.autoscroll = Vector2(-speed / 2, 0)
 	if find_child("Ground"): $Ground.autoscroll = Vector2(-speed, 0)
-
+	for pipe in %pipes.get_children():
+		pipe.speed = self.speed
 
 
 

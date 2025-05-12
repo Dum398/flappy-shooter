@@ -10,7 +10,6 @@ radius = 24.0208
 collision_layer = 2
 script = ExtResource("1_en72m")
 bonus_type = 4
-weapon_scene = null
 
 [node name="star" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
