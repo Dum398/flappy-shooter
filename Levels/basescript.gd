@@ -5,9 +5,19 @@ var _bonus_scene = preload("res://Bonus/bonus.tscn")
 var _bomb_scene = preload("res://Bonus/bomb_bonus.tscn")
 var _star_scene = preload ("res://Bonus/star_bonus.tscn")
 var _medkit_scene= preload ("res://Bonus/medkit_bonus.tscn")
+var _level2_scene = preload("res://Levels/background_level2.tscn")
 var _dragon_health = 2
 @export var enemies :Array[PackedScene]
 @export var weapons :Array[PackedScene]
+func _change_level(level_scene :PackedScene):
+	for node in $level_content.get_children():
+		node.queue_free()
+	var _level2 = _level2_scene.instantiate()
+	$level_content.add_child(_level2)
+	
+func _process(delta):
+	if Input.is_action_just_pressed("ui_text_completion_replace"):
+		self._change_level(_level2_scene)
 func _get_spawn_position():
 	var screen_size = get_viewport_rect().size
 	return Vector2(screen_size.x, (screen_size.y - 120) * randf())
