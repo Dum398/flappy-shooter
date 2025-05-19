@@ -22,8 +22,6 @@ func scorelevelchange():
 			$Player._bomb_now()
 			changenumber = changenumber + 1
 func _process(delta):
-	if Input.is_action_just_pressed("ui_text_backspace"):
-		self._change_level(_level2_scene)
 	scorelevelchange()
 func _get_spawn_position():
 	var screen_size = get_viewport_rect().size
