@@ -1,5 +1,5 @@
 extends Node2D
-
+var changenumber = 0
 var _dragon_scene = preload("res://Enemies/dragon.tscn")
 var _bonus_scene = preload("res://Bonus/bonus.tscn")
 var _bomb_scene = preload("res://Bonus/bomb_bonus.tscn")
@@ -14,10 +14,17 @@ func _change_level(level_scene :PackedScene):
 		node.queue_free()
 	var _level2 = _level2_scene.instantiate()
 	$level_content.add_child(_level2)
-	
+func scorelevelchange():
+	if $CanvasLayer/HUD.score >= 35:
+		if changenumber <= 1:
+			_change_level(_level2_scene)
+			$Player._bomb_count = $Player._bomb_count + 1
+			$Player._bomb_now()
+			changenumber = changenumber + 1
 func _process(delta):
-	if Input.is_action_just_pressed("ui_text_completion_replace"):
+	if Input.is_action_just_pressed("ui_text_backspace"):
 		self._change_level(_level2_scene)
+	scorelevelchange()
 func _get_spawn_position():
 	var screen_size = get_viewport_rect().size
 	return Vector2(screen_size.x, (screen_size.y - 120) * randf())

@@ -3,6 +3,7 @@ signal invincibility_changed(new_count :bool)
 signal bomb_count_changed(new_count :int)
 signal player_death()
 signal health_changed(new_health :int)
+signal unknownbonus
 ## Rychlost pohybu nahoru v px za vteřinu
 @export var flap_strength := 400
 
@@ -114,6 +115,8 @@ func add_bonus(bonus :BonusPickup):
 		if self.health>=3:
 			return
 		self.health=self.health+1
+
+		
 	bonus.queue_free()
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	self._dead = true
