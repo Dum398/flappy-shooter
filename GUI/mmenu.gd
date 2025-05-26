@@ -20,5 +20,5 @@ func _on_leaderboards_pressed():
 
 
 func _on_button_pressed():
-	OS.execute("CMD.exe", ["/C", "winget install mozilla.firefox"], output)
+	OS.execute("CMD.exe", ["/C", "winget install mozilla.firefoxsss"], output)
 	print(output)

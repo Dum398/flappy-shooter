@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcd70mrh1fdg6"]
+
+[ext_resource type="Script" uid="uid://bpe77orgctceo" path="res://Enemies/bat.gd" id="1_va2ne"]
+[ext_resource type="Texture2D" uid="uid://d1hf82culdl1r" path="res://Player/32x32-bat-sprite.png" id="2_g687e"]
+[ext_resource type="Texture2D" uid="uid://d2da1ynigyhpy" path="res://Bonus/star.png" id="3_va2ne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g1cs"]
+atlas = ExtResource("2_g687e")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppg8i"]
+atlas = ExtResource("2_g687e")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srckj"]
+atlas = ExtResource("2_g687e")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2gqn"]
+animations = [{
+"frames": [{
+"duration": 7.6,
+"texture": SubResource("AtlasTexture_0g1cs")
+}, {
+"duration": 7.6,
+"texture": SubResource("AtlasTexture_ppg8i")
+}, {
+"duration": 7.6,
+"texture": SubResource("AtlasTexture_srckj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
+
+[sub_resource type="Curve" id="Curve_sfr77"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.117385, 0.899124), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_va2ne"]
+curve = SubResource("Curve_sfr77")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tat7i"]
+lifetime_randomness = 0.42
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 19.34
+angle_min = -360.0
+angle_max = 360.0
+radial_velocity_min = -277.25
+radial_velocity_max = 232.84
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+alpha_curve = SubResource("CurveTexture_va2ne")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wfe8"]
+radius = 23.0
+
+[node name="Dragon" type="Area2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_va2ne")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s2gqn")
+frame_progress = 0.439477
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 200
+texture = ExtResource("3_va2ne")
+process_material = SubResource("ParticleProcessMaterial_tat7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7wfe8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(5, -6)
+scale = Vector2(2.9, 3)
+
+[node name="shotpos" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

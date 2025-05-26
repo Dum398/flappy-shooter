@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwfh7nuc8c4td"]
+
+[ext_resource type="Texture2D" uid="uid://d2da1ynigyhpy" path="res://Bonus/star.png" id="1_0r486"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0r486"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[node name="Node2D" type="GPUParticles2D"]
+emitting = false
+amount = 95193
+texture = ExtResource("1_0r486")
+process_material = SubResource("ParticleProcessMaterial_0r486")
