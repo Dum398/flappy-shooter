@@ -41,7 +41,6 @@ shape = SubResource("CircleShape2D_xyby5")
 [node name="Guns" type="Node2D" parent="."]
 
 [node name="Gun" parent="Guns" instance=ExtResource("3_y1in8")]
-position = Vector2(28, 0)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1.66893e-06, -1.07288e-06)

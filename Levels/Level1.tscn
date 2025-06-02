@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c26p5n8sido4"]
+[gd_scene load_steps=12 format=3 uid="uid://c26p5n8sido4"]
 
 [ext_resource type="Script" uid="uid://dx75i2umd8ckt" path="res://Levels/basescript.gd" id="1_kbdgy"]
 [ext_resource type="PackedScene" uid="uid://dhdx51utwhyx6" path="res://Player/Player.tscn" id="1_y36o4"]
@@ -9,12 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://rrqtm6akfipu" path="res://Bonus/gun_bonus.tscn" id="5_5g41i"]
 [ext_resource type="AudioStream" uid="uid://c4gq8be8h5m1u" path="res://8bit-video-game-music-289970.mp3" id="5_vyt3g"]
 [ext_resource type="PackedScene" uid="uid://7jrtkidhxbcr" path="res://node_2d.tscn" id="6_kyd11"]
+[ext_resource type="PackedScene" uid="uid://bf8j6ig4ppm73" path="res://Bonus/rocketlauncher_bonus.tscn" id="7_p5226"]
 [ext_resource type="PackedScene" uid="uid://bcd70mrh1fdg6" path="res://Enemies/bat.tscn" id="10_7fl83"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_kbdgy")
 enemies = Array[PackedScene]([ExtResource("6_kyd11"), ExtResource("2_v6xuk"), ExtResource("10_7fl83")])
-weapons = Array[PackedScene]([ExtResource("4_xcayt"), ExtResource("5_5g41i")])
+weapons = Array[PackedScene]([ExtResource("4_xcayt"), ExtResource("5_5g41i"), ExtResource("7_p5226")])
 
 [node name="level_content" type="Node2D" parent="."]
 
@@ -31,7 +32,6 @@ wait_time = 0.2
 autostart = true
 
 [node name="BonusSpawn" type="Timer" parent="."]
-wait_time = 45.0
 autostart = true
 
 [node name="BombSpawn" type="Timer" parent="."]

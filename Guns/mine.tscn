@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkjgxm8lothkd"]
+
+[ext_resource type="Script" uid="uid://flfyexsvv8wx" path="res://Guns/rocket.gd" id="1_qhav4"]
+[ext_resource type="Texture2D" uid="uid://chbiur366u7nk" path="res://1.png" id="2_qhlvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1tg8"]
+atlas = ExtResource("2_qhlvc")
+region = Rect2(81.9628, 66.8072, 23.0546, 9.31995)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8d7vh"]
+radius = 2.95752
+height = 5.91504
+
+[node name="rocket" type="Area2D"]
+scale = Vector2(1.58939, 1.52)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_qhav4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_y1tg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 0)
+rotation = -3.12068
+shape = SubResource("CapsuleShape2D_8d7vh")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(1, 0.320095)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

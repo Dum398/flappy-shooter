@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf8j6ig4ppm73"]
+
+[ext_resource type="Script" uid="uid://bbuchqxhew64d" path="res://Bonus/bonus.gd" id="1_bbpp0"]
+[ext_resource type="PackedScene" uid="uid://d2kbo5en35cl" path="res://Guns/mine_launcher.tscn" id="2_bbpp0"]
+[ext_resource type="Texture2D" uid="uid://chbiur366u7nk" path="res://1.png" id="3_72ub2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wpsl"]
+atlas = ExtResource("3_72ub2")
+region = Rect2(47.0987, 65.1444, 35.8082, 16.0238)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5tb8"]
+radius = 24.0208
+
+[node name="Bonus" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_bbpp0")
+bonus_type = 3
+weapon_scene = ExtResource("2_bbpp0")
+
+[node name="star" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(3.90114, 3.90114)
+texture = SubResource("AtlasTexture_6wpsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u5tb8")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0.500002, 2)
+scale = Vector2(2.65, 2.7)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

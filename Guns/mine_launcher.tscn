@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2kbo5en35cl"]
+
+[ext_resource type="Script" uid="uid://bx82ijbjxhk1q" path="res://Guns/mine_launcher.gd" id="1_7wkxe"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_7wkxe")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
