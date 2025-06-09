@@ -1,7 +1,7 @@
 extends Control
 
 signal deploy_bomb()
-
+@export var health_icon :Texture2D
 var player_health :int = 0:
 	set(new_value):
 		player_health = new_value
@@ -37,6 +37,13 @@ var is_invincible = false:
 		is_game_over = new_value
 		%staricon.visible = new_value
 	
+func set_bomb_count(new_count :int):
+	self.bomb_count = new_count
+func set_health_count(new_val :int):
+	self.player_health = new_val
+func set_invincible(new_val :bool):
+	self.is_invincible = new_val
+	
 
 func _on_reset_button_pressed():
 	get_tree().reload_current_scene()
@@ -53,6 +60,10 @@ func _on_player_invincibility_changed(new_count):
 func _on_mmenubutton_pressed():
 	get_tree().change_scene_to_file("res://GUI/mmenu.tscn")
 
+func _ready():
+	for sprite in %health.get_children():
+		sprite.texture = self.health_icon
+	
 
 func _on_potvrzeni_pressed():
 	var final_name = %usernamneedit.text.strip_edges()

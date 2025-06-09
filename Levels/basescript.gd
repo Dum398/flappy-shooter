@@ -58,7 +58,7 @@ func _on_bomb_spawn_timeout():
 	var bonus = _bomb_scene.instantiate()
 	bonus.position = self._get_spawn_position()
 	self.add_child(bonus)
-
+ 
 func _on_starspawn_timeout():
 	var bonus = _star_scene.instantiate()
 	bonus.position = self._get_spawn_position()
