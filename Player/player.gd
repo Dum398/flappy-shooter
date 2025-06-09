@@ -6,7 +6,7 @@ signal health_changed(new_health :int)
 signal unknownbonus
 ## Rychlost pohybu nahoru v px za vteřinu
 @export var flap_strength := 400
-
+@export var playerframes :SpriteFrames
 @onready var _gun_list = $Guns
 @onready var _anim = $Icon as AnimatedSprite2D
 
@@ -32,12 +32,13 @@ var _bomb_count :int = 0:
 
 func _ready():
 	self._bomb_count = 1
+	$Icon.sprite_frames = playerframes
 
 
 
 func _shoot_now():
 	for single_gun in self._gun_list.get_children():
-		single_gun.shoot_now()
+			single_gun.shoot_now()
 
 
 func _bomb_now():
@@ -72,7 +73,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("bomb"):
 		self.try_bomb()
-
+ 
 
 func _physics_process(delta):
 	if self._dead:

@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://bhivk0xdbi7u2"]
+
+[ext_resource type="Texture2D" uid="uid://cllcyjanqu323" path="res://Player/redbird-downflap.png" id="1_s33n1"]
+[ext_resource type="Texture2D" uid="uid://qaf2vf7vq6cm" path="res://Player/redbird-midflap.png" id="2_1epn3"]
+[ext_resource type="Texture2D" uid="uid://cxoxu3gh5xrtj" path="res://Player/redbird-upflap.png" id="3_t0q8b"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s33n1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1epn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t0q8b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]

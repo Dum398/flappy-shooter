@@ -28,7 +28,6 @@ position = Vector2(174, 267)
 autostart = true
 
 [node name="EnemySpawn" type="Timer" parent="."]
-wait_time = 0.2
 autostart = true
 
 [node name="BonusSpawn" type="Timer" parent="."]
