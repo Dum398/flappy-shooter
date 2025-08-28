@@ -62,23 +62,27 @@ collision_mask = 5
 script = ExtResource("1_va2ne")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.04844, 2.92565)
 sprite_frames = SubResource("SpriteFrames_s2gqn")
 frame_progress = 0.439477
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+scale = Vector2(3.04844, 2.92565)
 emitting = false
 amount = 200
 texture = ExtResource("3_va2ne")
 process_material = SubResource("ParticleProcessMaterial_tat7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.04844, 2.92565)
 shape = SubResource("CircleShape2D_7wfe8")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(5, -6)
-scale = Vector2(2.9, 3)
+scale = Vector2(8.84047, 8.77696)
 
 [node name="shotpos" type="Node2D" parent="."]
+scale = Vector2(3.04844, 2.92565)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

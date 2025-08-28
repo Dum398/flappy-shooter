@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://bdrl5yfyl3pg1"]
+
+[ext_resource type="Script" uid="uid://dx75i2umd8ckt" path="res://Levels/basescript.gd" id="1_j68dd"]
+[ext_resource type="PackedScene" uid="uid://7jrtkidhxbcr" path="res://node_2d.tscn" id="2_wu1eb"]
+[ext_resource type="PackedScene" uid="uid://xu5e4abn5ti0" path="res://Enemies/dragon.tscn" id="3_m7vxu"]
+[ext_resource type="PackedScene" uid="uid://bcd70mrh1fdg6" path="res://Enemies/bat.tscn" id="4_8vfft"]
+[ext_resource type="PackedScene" uid="uid://cl22tu6gdg7y2" path="res://Bonus/shotgun_bonus.tscn" id="5_6kodd"]
+[ext_resource type="PackedScene" uid="uid://rrqtm6akfipu" path="res://Bonus/gun_bonus.tscn" id="6_yl5jr"]
+[ext_resource type="PackedScene" uid="uid://bf8j6ig4ppm73" path="res://Bonus/rocketlauncher_bonus.tscn" id="7_neujo"]
+[ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="8_q0pn0"]
+[ext_resource type="PackedScene" uid="uid://dhdx51utwhyx6" path="res://Player/Player.tscn" id="9_p4le7"]
+[ext_resource type="SpriteFrames" uid="uid://gnq38vg1d180" path="res://Player/Player.tres" id="10_gsfft"]
+[ext_resource type="PackedScene" uid="uid://di8ogbrqvfsvi" path="res://GUI/HUD.tscn" id="11_0f1kj"]
+[ext_resource type="Texture2D" uid="uid://brgun5wxkshsj" path="res://Sprites/bluebird-upflap.png" id="12_lscau"]
+[ext_resource type="Texture2D" uid="uid://cxoxu3gh5xrtj" path="res://Player/redbird-upflap.png" id="13_7n03t"]
+[ext_resource type="AudioStream" uid="uid://c4gq8be8h5m1u" path="res://8bit-video-game-music-289970.mp3" id="14_l4y04"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_j68dd")
+enemies = Array[PackedScene]([ExtResource("2_wu1eb"), ExtResource("3_m7vxu"), ExtResource("4_8vfft")])
+weapons = Array[PackedScene]([ExtResource("5_6kodd"), ExtResource("6_yl5jr"), ExtResource("7_neujo")])
+
+[node name="level_content" type="Node2D" parent="."]
+
+[node name="Background" parent="level_content" instance=ExtResource("8_q0pn0")]
+
+[node name="Player" parent="." instance=ExtResource("9_p4le7")]
+position = Vector2(174, 267)
+playerframes = ExtResource("10_gsfft")
+
+[node name="Player2" parent="." instance=ExtResource("9_p4le7")]
+position = Vector2(241, 337)
+input_fly = &"p2.fly"
+input_shoot = &"p2.shoot"
+input_bomb = &"p2.bomb"
+
+[node name="weapon_spawn" type="Timer" parent="."]
+autostart = true
+
+[node name="EnemySpawn" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="BonusSpawn" type="Timer" parent="."]
+autostart = true
+
+[node name="BombSpawn" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="starspawn" type="Timer" parent="."]
+wait_time = 2.7
+autostart = true
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("11_0f1kj")]
+offset_left = -1.0
+offset_right = -1.0
+health_icon = ExtResource("12_lscau")
+
+[node name="p2HUD" parent="CanvasLayer" instance=ExtResource("11_0f1kj")]
+offset_left = -1.0
+offset_top = 29.0
+offset_right = -1.0
+offset_bottom = 29.0
+health_icon = ExtResource("13_7n03t")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_l4y04")
+volume_db = -10.0
+autoplay = true
+parameters/looping = false
+
+[node name="Medkit_spawn" type="Timer" parent="."]
+autostart = true
+
+[connection signal="bomb_count_changed" from="Player" to="CanvasLayer/HUD" method="set_bomb_count"]
+[connection signal="health_changed" from="Player" to="CanvasLayer/HUD" method="set_health_count"]
+[connection signal="invincibility_changed" from="Player" to="CanvasLayer/HUD" method="set_invincible"]
+[connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
+[connection signal="unknownbonus" from="Player" to="." method="_on_player_unknownbonus"]
+[connection signal="bomb_count_changed" from="Player2" to="CanvasLayer/p2HUD" method="set_bomb_count"]
+[connection signal="health_changed" from="Player2" to="CanvasLayer/p2HUD" method="set_health_count"]
+[connection signal="invincibility_changed" from="Player2" to="CanvasLayer/p2HUD" method="set_invincible"]
+[connection signal="player_death" from="Player2" to="." method="_on_player_player_death"]
+[connection signal="timeout" from="weapon_spawn" to="." method="_on_weapon_spawn_timeout"]
+[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
+[connection signal="timeout" from="BonusSpawn" to="." method="_on_bonus_spawn_timeout"]
+[connection signal="timeout" from="BombSpawn" to="." method="_on_bomb_spawn_timeout"]
+[connection signal="timeout" from="starspawn" to="." method="_on_starspawn_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
+[connection signal="deploy_bomb" from="CanvasLayer/HUD" to="." method="_on_hud_deploy_bomb"]
+[connection signal="deploy_bomb" from="CanvasLayer/p2HUD" to="." method="_on_hud_deploy_bomb"]
+[connection signal="timeout" from="Medkit_spawn" to="." method="_on_medkit_spawn_timeout"]
