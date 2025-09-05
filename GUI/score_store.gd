@@ -1,7 +1,7 @@
 extends Label
 const G_CURRENT_VERSION = 1
 const G_file_path = "user://score.json"
-
+const G_feathers = 0
 func _init():
 	print("Skóre soubor je zde: " + ProjectSettings.globalize_path(G_file_path))
 	self.Save()
@@ -10,12 +10,7 @@ func gettopn(count :int):
 	self._leaderboard.sort_custom(func(a, b): return a.score > b.score)
 	return self._leaderboard.slice(0, count)
 
-var _leaderboard :Array = [
-	{
-		"name": "Franta omacka",
-		"score": 11
-	}
-]
+var _leaderboard :Array = []
 func add_score(name :String, score :int):
 	self._leaderboard.push_back({
 		"name": name,
