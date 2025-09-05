@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5m180p1evb80"]
+[gd_scene load_steps=5 format=3 uid="uid://c5m180p1evb80"]
 
 [ext_resource type="FontFile" uid="uid://f08ay0uwimd6" path="res://GUI/Bytesized-Regular.ttf" id="1_4ylv5"]
 [ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="1_fys01"]
 [ext_resource type="Script" uid="uid://bxpnmva2nt4v5" path="res://GUI/mmenu.gd" id="1_i81kk"]
+[ext_resource type="Texture2D" uid="uid://bs22lx6gmsoth" path="res://ChatGPT Image 5. 9. 2025 08_26_32.png" id="4_gnb08"]
 
 [node name="Mmenu" type="Control"]
 layout_mode = 3
@@ -60,12 +61,22 @@ text = "leaderboards"
 layout_mode = 2
 text = "EXIT"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="TextureButton"]
+layout_mode = 0
+offset_left = 734.0
+offset_top = 291.0
+offset_right = 825.0
+offset_bottom = 381.0
+texture = ExtResource("4_gnb08")
+expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/leaderboards" to="." method="_on_leaderboards_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
