@@ -1,7 +1,6 @@
 extends Label
 const G_CURRENT_VERSION = 1
 const G_file_path = "user://score.json"
-const G_feathers = 0
 func _init():
 	print("Skóre soubor je zde: " + ProjectSettings.globalize_path(G_file_path))
 	self.Save()

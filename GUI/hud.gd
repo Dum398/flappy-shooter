@@ -2,6 +2,8 @@ extends Control
 signal skin1
 signal skin2
 signal skin3
+signal skin4
+signal skin5
 signal deploy_bomb()
 @export var health_icon :Texture2D
 var player_health :int = 0:
@@ -86,3 +88,11 @@ func _on_button_2_pressed():
 
 func _on_button_3_pressed():
 	skin3.emit()
+
+
+func _on_button_4_pressed():
+	skin4.emit()
+
+
+func _on_button_5_pressed():
+	skin5.emit()

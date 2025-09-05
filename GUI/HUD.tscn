@@ -187,6 +187,14 @@ text = "skin 2"
 layout_mode = 2
 text = "skin 3"
 
+[node name="Button4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "skin 4"
+
+[node name="Button5" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "skin 5"
+
 [connection signal="pressed" from="gameoverui/HBoxContainer/Potvrzeni" to="." method="_on_potvrzeni_pressed"]
 [connection signal="pressed" from="gameoverui/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="gameoverui/mmenubutton" to="." method="_on_mmenubutton_pressed"]
@@ -194,3 +202,5 @@ text = "skin 3"
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button5" to="." method="_on_button_5_pressed"]

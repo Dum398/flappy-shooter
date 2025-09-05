@@ -67,6 +67,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="TextureButton"]
+visible = false
 layout_mode = 0
 offset_left = 734.0
 offset_top = 291.0
