@@ -17,19 +17,6 @@ script = ExtResource("1_i81kk")
 [node name="Background" parent="." instance=ExtResource("1_fys01")]
 position = Vector2(441, -64)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-offset_left = 429.0
-offset_top = 203.0
-offset_right = 724.0
-offset_bottom = 266.0
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("1_4ylv5")
-theme_override_font_sizes/font_size = 45
-text = "Flappy Shooter"
-max_lines_visible = 1
-language = "cs"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -37,15 +24,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.5
-offset_top = -94.5
-offset_right = 147.5
-offset_bottom = 94.5
+offset_left = -157.5
+offset_top = -116.0
+offset_right = 157.5
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_4ylv5")
+theme_override_font_sizes/font_size = 45
+text = "Flappy Shooter"
+max_lines_visible = 1
+language = "cs"
+
+[node name="Multiplayer" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "multiplayer"
 
@@ -60,6 +56,10 @@ text = "leaderboards"
 [node name="exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "EXIT"
+
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -76,8 +76,9 @@ offset_bottom = 381.0
 texture = ExtResource("4_gnb08")
 expand_mode = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/leaderboards" to="." method="_on_leaderboards_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

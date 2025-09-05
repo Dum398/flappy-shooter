@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dyjax0u6bo0ki"]
+
+[node name="credits" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1160.0
+offset_bottom = 646.0
+text = "Thank you so much  for playing!
+Developers - Jirka Machula, Filip Sádovský "
+horizontal_alignment = 1
