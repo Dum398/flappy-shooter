@@ -36,7 +36,6 @@ wait_time = 0.5
 autostart = true
 
 [node name="BonusSpawn" type="Timer" parent="."]
-autostart = true
 
 [node name="BombSpawn" type="Timer" parent="."]
 wait_time = 30.0
@@ -44,7 +43,6 @@ autostart = true
 
 [node name="starspawn" type="Timer" parent="."]
 wait_time = 2.7
-autostart = true
 
 [node name="DifficultyTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -64,7 +62,6 @@ autoplay = true
 parameters/looping = false
 
 [node name="Medkit_spawn" type="Timer" parent="."]
-autostart = true
 
 [node name="skinselect" type="Timer" parent="."]
 wait_time = 5.0
@@ -86,5 +83,7 @@ autostart = true
 [connection signal="skin1" from="CanvasLayer/HUD" to="." method="_on_hud_skin_1"]
 [connection signal="skin2" from="CanvasLayer/HUD" to="." method="_on_hud_skin_2"]
 [connection signal="skin3" from="CanvasLayer/HUD" to="." method="_on_hud_skin_3"]
+[connection signal="skin4" from="CanvasLayer/HUD" to="." method="_on_hud_skin_4"]
+[connection signal="skin5" from="CanvasLayer/HUD" to="." method="_on_hud_skin_5"]
 [connection signal="timeout" from="Medkit_spawn" to="." method="_on_medkit_spawn_timeout"]
 [connection signal="timeout" from="skinselect" to="." method="_on_timer_timeout"]

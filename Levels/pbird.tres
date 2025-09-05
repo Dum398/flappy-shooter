@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://b23sjgqiafb8"]
+
+[ext_resource type="Texture2D" uid="uid://d3gmd5ybasf4n" path="res://Sprites/purpled.png" id="1_ao3ns"]
+[ext_resource type="Texture2D" uid="uid://1o8gp25nxim7" path="res://Sprites/purplem.png" id="2_co78t"]
+[ext_resource type="Texture2D" uid="uid://c8kaas3u5o56r" path="res://Sprites/purpleu.png" id="3_tq3j4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ao3ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_co78t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tq3j4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

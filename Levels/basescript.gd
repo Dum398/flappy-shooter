@@ -7,9 +7,12 @@ var _star_scene = preload ("res://Bonus/star_bonus.tscn")
 var _medkit_scene= preload ("res://Bonus/medkit_bonus.tscn")
 var _level2_scene = preload("res://Levels/background_level2.tscn")
 var _dragon_health = 2
+var feathers = 0
 var s1: SpriteFrames = load("res://Player/Player.tres")
 var s2: SpriteFrames = load("res://Player/Player2.tres")
 var s3: SpriteFrames = load("res://Levels/gbird.tres")
+var s4: SpriteFrames = load("res://Levels/ybird.tres")
+var s5: SpriteFrames = load("res://Levels/pbird.tres")
 @export var enemies :Array[PackedScene]
 @export var weapons :Array[PackedScene]
 func _change_level(level_scene :PackedScene):
@@ -30,7 +33,8 @@ func _process(delta):
 func _get_spawn_position():
 	var screen_size = get_viewport_rect().size
 	return Vector2(screen_size.x, (screen_size.y - 120) * randf())
-
+func _ready():
+	$Medkit_spawn.start()
 
 func _on_enemy_spawn_timeout():
 	if self.enemies.size() == 0:
@@ -97,10 +101,11 @@ func _on_weapon_spawn_timeout():
 
 
 func _on_medkit_spawn_timeout():
+	$Medkit_spawn.wait_time = randi_range(3, 6)
 	var bonus = _medkit_scene.instantiate()
 	bonus.position = self._get_spawn_position()
 	self.add_child(bonus)
-	
+	$Medkit_spawn.start()
 
 
 func _on_hud_skin_1():
@@ -117,3 +122,11 @@ func _on_hud_skin_3():
 func _on_timer_timeout():
 	$CanvasLayer/HUD/%HBoxContainer.visible = false
 	$Player.freeze = false
+
+
+func _on_hud_skin_4():
+	$Player/Icon.sprite_frames = s4
+
+
+func _on_hud_skin_5():
+	$Player/Icon.sprite_frames = s5
