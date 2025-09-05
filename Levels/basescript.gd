@@ -7,6 +7,9 @@ var _star_scene = preload ("res://Bonus/star_bonus.tscn")
 var _medkit_scene= preload ("res://Bonus/medkit_bonus.tscn")
 var _level2_scene = preload("res://Levels/background_level2.tscn")
 var _dragon_health = 2
+var s1: SpriteFrames = load("res://Player/Player.tres")
+var s2: SpriteFrames = load("res://Player/Player2.tres")
+var s3: SpriteFrames = load("res://Levels/gbird.tres")
 @export var enemies :Array[PackedScene]
 @export var weapons :Array[PackedScene]
 func _change_level(level_scene :PackedScene):
@@ -98,3 +101,19 @@ func _on_medkit_spawn_timeout():
 	bonus.position = self._get_spawn_position()
 	self.add_child(bonus)
 	
+
+
+func _on_hud_skin_1():
+	$Player/Icon.sprite_frames = s1
+
+
+func _on_hud_skin_2():
+	$Player/Icon.sprite_frames = s2
+
+func _on_hud_skin_3():
+	$Player/Icon.sprite_frames = s3
+
+
+func _on_timer_timeout():
+	$CanvasLayer/HUD/%HBoxContainer.visible = false
+	$Player.freeze = false

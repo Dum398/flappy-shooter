@@ -25,6 +25,7 @@ weapons = Array[PackedScene]([ExtResource("4_xcayt"), ExtResource("5_5g41i"), Ex
 
 [node name="Player" parent="." instance=ExtResource("1_y36o4")]
 position = Vector2(174, 267)
+freeze = true
 playerframes = ExtResource("10_tuji2")
 
 [node name="weapon_spawn" type="Timer" parent="."]
@@ -65,6 +66,11 @@ parameters/looping = false
 [node name="Medkit_spawn" type="Timer" parent="."]
 autostart = true
 
+[node name="skinselect" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [connection signal="bomb_count_changed" from="Player" to="CanvasLayer/HUD" method="set_bomb_count"]
 [connection signal="health_changed" from="Player" to="CanvasLayer/HUD" method="set_health_count"]
 [connection signal="invincibility_changed" from="Player" to="CanvasLayer/HUD" method="set_invincible"]
@@ -77,4 +83,8 @@ autostart = true
 [connection signal="timeout" from="starspawn" to="." method="_on_starspawn_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="deploy_bomb" from="CanvasLayer/HUD" to="." method="_on_hud_deploy_bomb"]
+[connection signal="skin1" from="CanvasLayer/HUD" to="." method="_on_hud_skin_1"]
+[connection signal="skin2" from="CanvasLayer/HUD" to="." method="_on_hud_skin_2"]
+[connection signal="skin3" from="CanvasLayer/HUD" to="." method="_on_hud_skin_3"]
 [connection signal="timeout" from="Medkit_spawn" to="." method="_on_medkit_spawn_timeout"]
+[connection signal="timeout" from="skinselect" to="." method="_on_timer_timeout"]

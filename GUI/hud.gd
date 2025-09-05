@@ -1,5 +1,7 @@
 extends Control
-
+signal skin1
+signal skin2
+signal skin3
 signal deploy_bomb()
 @export var health_icon :Texture2D
 var player_health :int = 0:
@@ -72,3 +74,15 @@ func _on_potvrzeni_pressed():
 	print(final_name)
 	ScoreStore.add_score(final_name, self.score)
 	%Potvrzeni.disabled = true
+
+
+func _on_button_pressed():
+	skin1.emit()
+
+
+func _on_button_2_pressed():
+	skin2.emit()
+
+
+func _on_button_3_pressed():
+	skin3.emit()
