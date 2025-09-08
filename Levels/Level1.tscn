@@ -86,5 +86,8 @@ autostart = true
 [connection signal="skin4" from="CanvasLayer/HUD" to="." method="_on_hud_skin_4"]
 [connection signal="skin5" from="CanvasLayer/HUD" to="." method="_on_hud_skin_5"]
 [connection signal="trail1" from="CanvasLayer/HUD" to="." method="_on_hud_trail_1"]
+[connection signal="trail2" from="CanvasLayer/HUD" to="." method="_on_hud_trail_2"]
+[connection signal="trail3" from="CanvasLayer/HUD" to="." method="_on_hud_trail_3"]
+[connection signal="trail4" from="CanvasLayer/HUD" to="." method="_on_hud_trail_4"]
 [connection signal="timeout" from="Medkit_spawn" to="." method="_on_medkit_spawn_timeout"]
 [connection signal="timeout" from="skinselect" to="." method="_on_timer_timeout"]

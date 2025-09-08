@@ -8,6 +8,10 @@ var _medkit_scene= preload ("res://Bonus/medkit_bonus.tscn")
 var _level2_scene = preload("res://Levels/background_level2.tscn")
 var _dragon_health = 2
 var feathers = 0
+var t1 = load("res://trail.jpg")
+var t2 = load("res://trail1.jpg")
+var t3 = load("res://trail2.jpg")
+var t4 = load("res://trail3.jpg")
 var s1: SpriteFrames = load("res://Player/Player.tres")
 var s2: SpriteFrames = load("res://Player/Player2.tres")
 var s3: SpriteFrames = load("res://Levels/gbird.tres")
@@ -134,3 +138,19 @@ func _on_hud_skin_5():
 
 func _on_hud_trail_1():
 	$Player/%trail.visible = true
+	$Player/%trail.texture = t1
+
+
+func _on_hud_trail_2():
+	$Player/%trail.visible = true
+	$Player/%trail.texture = t2
+
+
+func _on_hud_trail_3():
+	$Player/%trail.visible = true
+	$Player/%trail.texture = t3
+
+
+func _on_hud_trail_4():
+	$Player/%trail.visible = true
+	$Player/%trail.texture = t4

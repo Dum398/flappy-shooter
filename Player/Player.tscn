@@ -3,16 +3,18 @@
 [ext_resource type="Script" uid="uid://dvr1gr1ptkpwf" path="res://Player/player.gd" id="1_pkcwh"]
 [ext_resource type="SpriteFrames" uid="uid://bhivk0xdbi7u2" path="res://Player/Player2.tres" id="2_tok1r"]
 [ext_resource type="PackedScene" uid="uid://bwv2ghvr7t8jx" path="res://Guns/gun.tscn" id="3_y1in8"]
-[ext_resource type="Texture2D" uid="uid://d4l7nkwbqd4fk" path="res://trail.jpg" id="4_ddoul"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xyby5"]
 radius = 12.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8g4oa"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tok1r"]
+load_path = "res://.godot/imported/trail.jpg-314a2e10044d5af40cccede0d9758893.ctex"
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ysni"]
 particle_flag_disable_z = true
-gravity = Vector3(-200, 0, 0)
+gravity = Vector3(-500, 0, 0)
 linear_accel_min = -2.23517e-06
 linear_accel_max = -2.23517e-06
 
@@ -45,7 +47,7 @@ material = SubResource("ShaderMaterial_8g4oa")
 position = Vector2(-12, 0)
 rotation = -0.00203338
 amount = 1000
-texture = ExtResource("4_ddoul")
+texture = SubResource("CompressedTexture2D_tok1r")
 lifetime = 2.0
 fixed_fps = 60
 draw_order = 0
