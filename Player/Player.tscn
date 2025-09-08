@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhdx51utwhyx6"]
+[gd_scene load_steps=8 format=3 uid="uid://dhdx51utwhyx6"]
 
 [ext_resource type="Script" uid="uid://dvr1gr1ptkpwf" path="res://Player/player.gd" id="1_pkcwh"]
 [ext_resource type="SpriteFrames" uid="uid://bhivk0xdbi7u2" path="res://Player/Player2.tres" id="2_tok1r"]
 [ext_resource type="PackedScene" uid="uid://bwv2ghvr7t8jx" path="res://Guns/gun.tscn" id="3_y1in8"]
+[ext_resource type="Texture2D" uid="uid://d4l7nkwbqd4fk" path="res://trail.jpg" id="4_ddoul"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xyby5"]
 radius = 12.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8g4oa"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ysni"]
+particle_flag_disable_z = true
+gravity = Vector3(-200, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 3
@@ -28,6 +37,22 @@ scale = Vector2(1.7, 1.2)
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 10.552
 one_shot = true
+
+[node name="trail" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_8g4oa")
+position = Vector2(-12, 0)
+rotation = -0.00203338
+amount = 1000
+texture = ExtResource("4_ddoul")
+lifetime = 2.0
+fixed_fps = 60
+draw_order = 0
+trail_enabled = true
+trail_lifetime = 0.01
+trail_sections = 3
+process_material = SubResource("ParticleProcessMaterial_6ysni")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

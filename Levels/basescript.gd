@@ -120,7 +120,7 @@ func _on_hud_skin_3():
 
 
 func _on_timer_timeout():
-	$CanvasLayer/HUD/%HBoxContainer.visible = false
+	$CanvasLayer/HUD/%VBoxContainer.visible = false
 	$Player.freeze = false
 
 
@@ -130,3 +130,7 @@ func _on_hud_skin_4():
 
 func _on_hud_skin_5():
 	$Player/Icon.sprite_frames = s5
+
+
+func _on_hud_trail_1():
+	$Player/%trail.visible = true
