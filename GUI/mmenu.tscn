@@ -41,13 +41,13 @@ text = "Flappy Shooter"
 max_lines_visible = 1
 language = "cs"
 
-[node name="Multiplayer" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "multiplayer"
-
 [node name="new_game" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "singleplayer"
+
+[node name="Multiplayer" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "multiplayer"
 
 [node name="leaderboards" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -76,8 +76,8 @@ offset_bottom = 381.0
 texture = ExtResource("4_gnb08")
 expand_mode = 1
 
-[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/leaderboards" to="." method="_on_leaderboards_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]

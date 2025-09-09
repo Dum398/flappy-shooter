@@ -8,6 +8,7 @@ signal trail1
 signal trail2
 signal trail3
 signal trail4
+signal trail5
 signal deploy_bomb()
 @export var health_icon :Texture2D
 var player_health :int = 0:
@@ -117,3 +118,7 @@ func _on_button_trail_3_pressed():
 
 func _on_button_trail_4_pressed():
 	trail4.emit()
+
+
+func _on_button_trail_5_pressed():
+	trail5.emit()
