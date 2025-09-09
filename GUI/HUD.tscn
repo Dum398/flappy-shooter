@@ -213,10 +213,6 @@ layout_mode = 2
 text = "skin 5"
 icon = ExtResource("10_h6ncn")
 
-[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "skin 6"
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -254,7 +250,6 @@ icon = ExtResource("15_xiqri")
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button5" to="." method="_on_button_5_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button6" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_trail1_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button2" to="." method="_on_button_trail_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button3" to="." method="_on_button_trail_3_pressed"]
