@@ -57,10 +57,10 @@ func _on_enemy_spawn_timeout():
 
 
 func _on_bonus_spawn_timeout():
-	var bonus = _bonus_scene.instantiate()
-	bonus.position = self._get_spawn_position()
-	self.add_child(bonus)
-
+#	var bonus = _bonus_scene.instantiate()
+# 	bonus.position = self._get_spawn_position()  
+#	self.add_child(bonus)  
+	pass  
 
 func _on_difficulty_timer_timeout():
 	self._dragon_health += 1
