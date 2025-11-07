@@ -76,9 +76,50 @@ offset_bottom = 381.0
 texture = ExtResource("4_gnb08")
 expand_mode = 1
 
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 445.0
+offset_right = 488.0
+offset_bottom = 469.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Update checking(beta)"
+
+[node name="Window" type="Window" parent="."]
+oversampling_override = 1.0
+title = "Update available"
+position = Vector2i(500, 255)
+size = Vector2i(300, 100)
+visible = false
+min_size = Vector2i(200, 50)
+
+[node name="yes" type="Button" parent="Window"]
+offset_left = 5.0
+offset_top = 52.0
+offset_right = 39.0
+offset_bottom = 83.0
+scale = Vector2(2.6805558, 1.40625)
+text = "yes"
+
+[node name="Button2" type="Button" parent="Window"]
+offset_left = 162.0
+offset_top = 57.0
+offset_right = 190.0
+offset_bottom = 88.0
+scale = Vector2(4.0044885, 1.3583333)
+text = "no"
+
+[node name="Label" type="Label" parent="Window"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Theres an update available do you 
+want to download it now?"
+
 [connection signal="pressed" from="VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/leaderboards" to="." method="_on_leaderboards_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="button_down" from="CheckButton" to="." method="_on_check_button_button_down"]
+[connection signal="pressed" from="Window/yes" to="." method="_on_yes_pressed"]

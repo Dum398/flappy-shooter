@@ -2,6 +2,8 @@ extends Node2D
 var changenumber = 0
 var _dragon_scene = preload("res://Enemies/dragon.tscn")
 var _bonus_scene = preload("res://Bonus/bonus.tscn")
+
+var currversion :String = "1.0.1beta"
 var _bomb_scene = preload("res://Bonus/bomb_bonus.tscn")
 var _star_scene = preload ("res://Bonus/star_bonus.tscn")
 var _medkit_scene= preload ("res://Bonus/medkit_bonus.tscn")
@@ -33,6 +35,9 @@ func scorelevelchange():
 			$Player._bomb_count = $Player._bomb_count + 1
 			$Player._bomb_now()
 			changenumber = changenumber + 1
+
+
+
 func _process(delta):
 	scorelevelchange()
 func _get_spawn_position():
