@@ -9,8 +9,32 @@ func _on_new_game_pressed():
 
 func _on_yes_pressed():
 	print("Downloading latest version...")
+
+	if not httpreq.is_inside_tree():
+		add_child(httpreq)
+
+	# Correct is_connected() with Callable
+	var callback = Callable(self, "_on_download_completed")
+	if not httpreq.is_connected("request_completed", callback):
+		httpreq.request_completed.connect(callback)
+
 	httpreq.request("http://www.gbh3f.9e.cz/latestwin.exe")
-	FileDialog.FileMode.FILE_MODE_SAVE_FILE
+
+func _on_download_completed(result, code, headers, body):
+	if result == OK and code == 200:
+		var file = FileAccess.open(download_path, FileAccess.WRITE)
+		if file:
+			file.store_buffer(body)
+			file.close()
+			print("Downloaded to:", download_path)
+		else:
+			print("Failed to open file for writing")
+	else:
+		print("Download failed! Result:", result, "Code:", code)
+
+
+
+
 
 
 
@@ -54,3 +78,7 @@ func _on_check_button_button_down():
 	)
 
 	httpreq.request("http://www.gbh3f.9e.cz/winver.txt")
+
+
+func _on_no_pressed():
+	$Window.visible = false

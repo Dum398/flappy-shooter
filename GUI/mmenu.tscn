@@ -101,7 +101,7 @@ offset_bottom = 83.0
 scale = Vector2(2.6805558, 1.40625)
 text = "yes"
 
-[node name="Button2" type="Button" parent="Window"]
+[node name="no" type="Button" parent="Window"]
 offset_left = 162.0
 offset_top = 57.0
 offset_right = 190.0
@@ -123,3 +123,4 @@ want to download it now?"
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="button_down" from="CheckButton" to="." method="_on_check_button_button_down"]
 [connection signal="pressed" from="Window/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Window/no" to="." method="_on_no_pressed"]
