@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5m180p1evb80"]
+[gd_scene load_steps=6 format=3 uid="uid://c5m180p1evb80"]
 
 [ext_resource type="FontFile" uid="uid://f08ay0uwimd6" path="res://GUI/Bytesized-Regular.ttf" id="1_4ylv5"]
 [ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="1_fys01"]
 [ext_resource type="Script" uid="uid://bxpnmva2nt4v5" path="res://GUI/mmenu.gd" id="1_i81kk"]
 [ext_resource type="Texture2D" uid="uid://bs22lx6gmsoth" path="res://ChatGPT Image 5. 9. 2025 08_26_32.png" id="4_gnb08"]
+[ext_resource type="Script" uid="uid://ce0ly77uldfh7" path="res://GUI/modload.gd" id="5_t6vof"]
 
 [node name="Mmenu" type="Control"]
 layout_mode = 3
@@ -114,6 +115,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Theres an update available do you 
 want to download it now?"
+
+[node name="modload" type="Node" parent="."]
+script = ExtResource("5_t6vof")
 
 [connection signal="pressed" from="VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_button_pressed"]
