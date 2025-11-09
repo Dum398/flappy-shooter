@@ -30,7 +30,6 @@ func _change_level(level_scene :PackedScene):
 func scorelevelchange():
 	if $CanvasLayer/HUD.score >= 35:
 		if changenumber <= 1:
-			
 			_change_level(_level2_scene)
 			$Player._bomb_count = $Player._bomb_count + 1
 			$Player._bomb_now()

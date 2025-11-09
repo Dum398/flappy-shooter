@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c26p5n8sido4"]
+[gd_scene load_steps=15 format=3 uid="uid://c26p5n8sido4"]
 
 [ext_resource type="Script" uid="uid://dx75i2umd8ckt" path="res://Levels/basescript.gd" id="1_kbdgy"]
 [ext_resource type="PackedScene" uid="uid://dhdx51utwhyx6" path="res://Player/Player.tscn" id="1_y36o4"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bcd70mrh1fdg6" path="res://Enemies/bat.tscn" id="10_7fl83"]
 [ext_resource type="SpriteFrames" uid="uid://gnq38vg1d180" path="res://Player/Player.tres" id="10_tuji2"]
 [ext_resource type="Texture2D" uid="uid://brgun5wxkshsj" path="res://Sprites/bluebird-upflap.png" id="12_104vp"]
+[ext_resource type="Script" uid="uid://f53yspl3ys6e" path="res://modload.gd" id="14_104vp"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_kbdgy")
@@ -67,6 +68,9 @@ parameters/looping = false
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="modloader" type="Node" parent="."]
+script = ExtResource("14_104vp")
 
 [connection signal="bomb_count_changed" from="Player" to="CanvasLayer/HUD" method="set_bomb_count"]
 [connection signal="health_changed" from="Player" to="CanvasLayer/HUD" method="set_health_count"]
