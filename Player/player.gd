@@ -78,6 +78,7 @@ func _process(delta):
  
 
 func _physics_process(delta):
+	if !is_multiplayer_authority() :return
 	if self._dead:
 		return
 	
@@ -136,7 +137,8 @@ func _on_invincibility_timer_timeout():
 
 	
 
-
+func _enter_tree():
+	set_multiplayer_authority(name.to_int())
 	
 	
 	

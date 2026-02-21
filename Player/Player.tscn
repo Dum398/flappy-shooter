@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhdx51utwhyx6"]
+[gd_scene load_steps=9 format=3 uid="uid://dhdx51utwhyx6"]
 
 [ext_resource type="Script" uid="uid://dvr1gr1ptkpwf" path="res://Player/player.gd" id="1_pkcwh"]
 [ext_resource type="SpriteFrames" uid="uid://bhivk0xdbi7u2" path="res://Player/Player2.tres" id="2_tok1r"]
@@ -17,6 +17,11 @@ particle_flag_disable_z = true
 gravity = Vector3(-500, 0, 0)
 linear_accel_min = -2.23517e-06
 linear_accel_max = -2.23517e-06
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_tok1r"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 3
@@ -55,6 +60,9 @@ trail_enabled = true
 trail_lifetime = 0.01
 trail_sections = 3
 process_material = SubResource("ParticleProcessMaterial_6ysni")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_tok1r")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

@@ -12,7 +12,7 @@
 [ext_resource type="SpriteFrames" uid="uid://gnq38vg1d180" path="res://Player/Player.tres" id="10_gsfft"]
 [ext_resource type="PackedScene" uid="uid://di8ogbrqvfsvi" path="res://GUI/HUD.tscn" id="11_0f1kj"]
 [ext_resource type="Texture2D" uid="uid://brgun5wxkshsj" path="res://Sprites/bluebird-upflap.png" id="12_lscau"]
-[ext_resource type="Texture2D" uid="uid://cxoxu3gh5xrtj" path="res://Player/redbird-upflap.png" id="13_7n03t"]
+[ext_resource type="Script" uid="uid://nv10kswkmdsl" path="res://Levels/player_spawner.gd" id="14_j68dd"]
 [ext_resource type="AudioStream" uid="uid://c4gq8be8h5m1u" path="res://8bit-video-game-music-289970.mp3" id="14_l4y04"]
 
 [node name="game" type="Node2D"]
@@ -27,12 +27,6 @@ weapons = Array[PackedScene]([ExtResource("5_6kodd"), ExtResource("6_yl5jr"), Ex
 [node name="Player" parent="." instance=ExtResource("9_p4le7")]
 position = Vector2(174, 267)
 playerframes = ExtResource("10_gsfft")
-
-[node name="Player2" parent="." instance=ExtResource("9_p4le7")]
-position = Vector2(241, 337)
-input_fly = &"p2.fly"
-input_shoot = &"p2.shoot"
-input_bomb = &"p2.bomb"
 
 [node name="weapon_spawn" type="Timer" parent="."]
 autostart = true
@@ -63,13 +57,6 @@ offset_left = -1.0
 offset_right = -1.0
 health_icon = ExtResource("12_lscau")
 
-[node name="p2HUD" parent="CanvasLayer" instance=ExtResource("11_0f1kj")]
-offset_left = 1.0
-offset_top = -71.0
-offset_right = 1.0
-offset_bottom = -71.0
-health_icon = ExtResource("13_7n03t")
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_l4y04")
 volume_db = -10.0
@@ -79,15 +66,17 @@ parameters/looping = false
 [node name="Medkit_spawn" type="Timer" parent="."]
 autostart = true
 
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://bdrl5yfyl3pg1")
+spawn_path = NodePath("..")
+script = ExtResource("14_j68dd")
+network_player = null
+
 [connection signal="bomb_count_changed" from="Player" to="CanvasLayer/HUD" method="set_bomb_count"]
 [connection signal="health_changed" from="Player" to="CanvasLayer/HUD" method="set_health_count"]
 [connection signal="invincibility_changed" from="Player" to="CanvasLayer/HUD" method="set_invincible"]
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
 [connection signal="unknownbonus" from="Player" to="." method="_on_player_unknownbonus"]
-[connection signal="bomb_count_changed" from="Player2" to="CanvasLayer/p2HUD" method="set_bomb_count"]
-[connection signal="health_changed" from="Player2" to="CanvasLayer/p2HUD" method="set_health_count"]
-[connection signal="invincibility_changed" from="Player2" to="CanvasLayer/p2HUD" method="set_invincible"]
-[connection signal="player_death" from="Player2" to="." method="_on_player_player_death"]
 [connection signal="timeout" from="weapon_spawn" to="." method="_on_weapon_spawn_timeout"]
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="timeout" from="BonusSpawn" to="." method="_on_bonus_spawn_timeout"]
@@ -95,5 +84,4 @@ autostart = true
 [connection signal="timeout" from="starspawn" to="." method="_on_starspawn_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="deploy_bomb" from="CanvasLayer/HUD" to="." method="_on_hud_deploy_bomb"]
-[connection signal="deploy_bomb" from="CanvasLayer/p2HUD" to="." method="_on_hud_deploy_bomb"]
 [connection signal="timeout" from="Medkit_spawn" to="." method="_on_medkit_spawn_timeout"]

@@ -37,7 +37,7 @@ script = ExtResource("1_s0huf")
 
 [node name="health" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
 offset_left = 15.0
 offset_top = 583.0
 offset_right = 61.0

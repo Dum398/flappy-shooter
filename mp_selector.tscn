@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3rhx6c1ddqeh"]
+
+[ext_resource type="PackedScene" uid="uid://cvdfwtnly5tyl" path="res://Levels/background.tscn" id="1_7wjjj"]
+[ext_resource type="Script" uid="uid://crqi8jhbpus4a" path="res://mp_selector.gd" id="1_nt50w"]
+[ext_resource type="FontFile" uid="uid://f08ay0uwimd6" path="res://GUI/Bytesized-Regular.ttf" id="2_nt50w"]
+
+[node name="mp_selector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -9.0
+offset_right = -2.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nt50w")
+
+[node name="Background" parent="." instance=ExtResource("1_7wjjj")]
+position = Vector2(441, -64)
+
+[node name="ipedit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 710.0
+offset_top = 358.0
+offset_right = 972.0
+offset_bottom = 422.0
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Ip address(client only)"
+emoji_menu_enabled = false
+wrap_mode = 1
+
+[node name="portedit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 709.0
+offset_top = 285.0
+offset_right = 971.0
+offset_bottom = 349.0
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Port number(for client and server)"
+emoji_menu_enabled = false
+wrap_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 214.0
+offset_right = 691.0
+offset_bottom = 369.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_nt50w")
+theme_override_font_sizes/font_size = 45
+text = "select mode"
+max_lines_visible = 1
+language = "cs"
+
+[node name="server" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "Run a Server"
+
+[node name="client" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "Connect to a server"
+
+[connection signal="pressed" from="VBoxContainer/server" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/client" to="." method="_on_button_2_pressed"]
