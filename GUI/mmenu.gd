@@ -66,7 +66,7 @@ func _on_leaderboards_pressed():
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Levels/Level1_mp.tscn")
+	get_tree().change_scene_to_file("res://mp_selector.tscn")
 
 
 func _on_texture_button_pressed():
